@@ -742,7 +742,62 @@ box-shadow:0 15px 40px rgba(0,0,0,.8);
 }
 
 
-  
+  /* تنسيق أيقونة الواتساب */
+.whatsapp-container {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    display: flex;
+    align-items: center;
+    z-index: 2000;
+}
+
+.whatsapp-link {
+    background: #25D366;
+    color: white;
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    text-decoration: none;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    transition: 0.3s;
+}
+
+/* جملة الترحيب (تكون مخفية في البداية) */
+.whatsapp-msg {
+    background: white;
+    color: #333;
+    padding: 8px 15px;
+    border-radius: 8px;
+    margin-right: 15px;
+    font-size: 14px;
+    font-weight: bold;
+    opacity: 0;
+    transform: translateX(20px);
+    transition: 0.3s;
+    pointer-events: none;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    white-space: nowrap;
+}
+
+/* حركة الـ Hover: إظهار الجملة عند لمس الأيقونة */
+.whatsapp-container:hover .whatsapp-msg {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.whatsapp-link:hover {
+    transform: scale(1.1);
+}
+
+footer a:hover {
+    text-shadow: 0 0 10px rgba(212, 167, 98, 0.5); /* إضاءة ذهبية خفيفة حول اسمك */
+    text-decoration: underline; /* خط تحت الاسم عند الوقوف عليه */
+}
 
 
    
@@ -1004,17 +1059,23 @@ perfect for friends and evening gatherings.
         </iframe>
     </div>
 </section>
-  <footer>
-
+<div class="whatsapp-container">
+    <div class="whatsapp-msg">     👋 Sahra Cafe اهلا بيك في  </div>
+    <a class="whatsapp-link" href="https://wa.me/201000000000" target="_blank">
+        <i class="fab fa-whatsapp"></i> <span>💬</span> </a>
+</div>
+ <footer>
     <p>© 2026 Sahra Cafe - All Rights Reserved</p>
+   
 
-  </footer>
+    <p style="margin-top: 10px; font-size: 14px; color: #777;">
+    Developed by 
+    <a href="https://wa.me/201007359722" target="_blank" style="text-decoration: none; color: #d4a762; font-weight: bold; transition: 0.3s;">
+        Eng. Radwa Mohmed
+    </a>
+</p>
+</footer>
 
-  <a class="whatsapp" href="https://wa.me/201000000000" target="_blank">💬</a>
-
-  <div class="lightbox" id="lightbox">
-    <img src="">
-  </div>
 
   <script>
 
