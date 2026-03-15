@@ -1,467 +1,468 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Sahra Cafe Menu</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sahra Cafe Menu</title>
 
-<style>
+    <style>
+        /* === Categories Section (NEW) === */
 
-/* === Categories Section (NEW) === */
+        .menu-categories {
+            padding: 70px 10%;
+            text-align: center;
+            background: #111;
+        }
 
-.menu-categories{
-padding:70px 10%;
-text-align:center;
-background:#111;
-}
+        .menu-categories h2 {
+            color: #d4a762;
+            margin-bottom: 40px;
+        }
 
-.menu-categories h2{
-color:#d4a762;
-margin-bottom:40px;
-}
+        .categories-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 25px;
+        }
 
-.categories-container{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
-gap:25px;
-}
+        .category-card {
+            background: #1c1c1c;
+            border-radius: 15px;
+            overflow: hidden;
+            text-decoration: none;
+            color: white;
+            transition: .3s;
+        }
 
-.category-card{
-background:#1c1c1c;
-border-radius:15px;
-overflow:hidden;
-text-decoration:none;
-color:white;
-transition:.3s;
-}
+        .category-card:hover {
+            transform: translateY(-8px);
+        }
 
-.category-card:hover{
-transform:translateY(-8px);
-}
+        .category-card img {
+            width: 100%;
+            height: 160px;
+            object-fit: cover;
+        }
 
-.category-card img{
-width:100%;
-height:160px;
-object-fit:cover;
-}
+        .category-card h3 {
+            padding: 15px;
+            color: #d4a762;
+        }
 
-.category-card h3{
-padding:15px;
-color:#d4a762;
-}
+        /* === Menu Section === */
 
-/* === Menu Section === */
+        #menuSection {
+            padding: 80px 10%;
+            text-align: center;
+        }
 
-#menuSection{
-padding:80px 10%;
-text-align:center;
-}
+        #menuSection h2 {
+            margin-bottom: 30px;
+            color: #d4a762;
+        }
 
-#menuSection h2{
-margin-bottom:30px;
-color:#d4a762;
-}
+        /* === Filter Buttons === */
 
-/* === Filter Buttons === */
+        .filter-buttons {
+            margin-bottom: 40px;
+        }
 
-.filter-buttons{
-margin-bottom:40px;
-}
+        .filter-buttons button {
+            padding: 10px 20px;
+            margin: 5px;
+            border: none;
+            background: #d4a762;
+            color: white;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: .3s;
+        }
 
-.filter-buttons button{
-padding:10px 20px;
-margin:5px;
-border:none;
-background:#d4a762;
-color:white;
-cursor:pointer;
-border-radius:5px;
-transition:.3s;
-}
+        .filter-buttons button:hover {
+            background: #b89250;
+        }
 
-.filter-buttons button:hover{
-background:#b89250;
-}
+        /* === Menu Grid === */
 
-/* === Menu Grid === */
+        .menu-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
 
-.menu-container{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-gap:30px;
-}
+        .menu-item {
+            background: #1c1c1c;
+            border-radius: 15px;
+            overflow: hidden;
+            transition: .3s;
+            cursor: pointer;
+            position: relative;
+        }
 
-.menu-item{
-background:#1c1c1c;
-border-radius:15px;
-overflow:hidden;
-transition:.3s;
-cursor:pointer;
-position:relative;
-}
+        .menu-item:hover {
+            transform: translateY(-8px);
+        }
 
-.menu-item:hover{
-transform:translateY(-8px);
-}
+        .menu-item img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+        }
 
-.menu-item img{
-width:100%;
-height:220px;
-object-fit:cover;
-}
+        .menu-item h3 {
+            margin-top: 10px;
+            color: #d4a762;
+        }
 
-.menu-item h3{
-margin-top:10px;
-color:#d4a762;
-}
+        .menu-item p {
+            font-size: 14px;
+            color: #ccc;
+            margin: 5px 10px;
+            min-height: 40px;
+        }
 
-.menu-item p{
-font-size:14px;
-color:#ccc;
-margin:5px 10px;
-min-height:40px;
-}
+        .menu-item .tags {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 5px;
+            margin: 5px 0;
+        }
 
-.menu-item .tags{
-display:flex;
-justify-content:center;
-flex-wrap:wrap;
-gap:5px;
-margin:5px 0;
-}
+        .menu-item .tags span {
+            background: #b89250;
+            padding: 3px 10px;
+            border-radius: 15px;
+            font-size: 12px;
+            color: white;
+        }
 
-.menu-item .tags span{
-background:#b89250;
-padding:3px 10px;
-border-radius:15px;
-font-size:12px;
-color:white;
-}
+        .menu-item span.price {
+            display: block;
+            margin: 5px 0;
+            font-weight: bold;
+            color: #d4a762;
+        }
 
-.menu-item span.price{
-display:block;
-margin:5px 0;
-font-weight:bold;
-color:#d4a762;
-}
+        .menu-item button {
+            margin-bottom: 15px;
+            padding: 8px 15px;
+            border: none;
+            border-radius: 5px;
+            background: #d4a762;
+            color: white;
+            cursor: pointer;
+            transition: .3s;
+        }
 
-.menu-item button{
-margin-bottom:15px;
-padding:8px 15px;
-border:none;
-border-radius:5px;
-background:#d4a762;
-color:white;
-cursor:pointer;
-transition:.3s;
-}
+        .menu-item button:hover {
+            background: #b89250;
+        }
 
-.menu-item button:hover{
-background:#b89250;
-}
+        /* === Popup === */
 
-/* === Popup === */
+        .popup {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.85);
+            justify-content: center;
+            align-items: center;
+            z-index: 10000;
+        }
 
-.popup{
-display:none;
-position:fixed;
-top:0;
-left:0;
-width:100%;
-height:100%;
-background:rgba(0,0,0,0.85);
-justify-content:center;
-align-items:center;
-z-index:10000;
-}
+        .popup-content {
+            background: #1c1c1c;
+            padding: 30px;
+            border-radius: 15px;
+            max-width: 500px;
+            width: 90%;
+            text-align: center;
+            position: relative;
+            color: white;
+        }
 
-.popup-content{
-background:#1c1c1c;
-padding:30px;
-border-radius:15px;
-max-width:500px;
-width:90%;
-text-align:center;
-position:relative;
-color:white;
-}
+        .popup-content img {
+            width: 100%;
+            border-radius: 10px;
+            margin-bottom: 15px;
+        }
 
-.popup-content img{
-width:100%;
-border-radius:10px;
-margin-bottom:15px;
-}
+        .popup-content h3 {
+            margin-bottom: 10px;
+            color: #d4a762;
+        }
 
-.popup-content h3{
-margin-bottom:10px;
-color:#d4a762;
-}
+        .popup-content p {
+            font-size: 15px;
+            margin-bottom: 15px;
+            color: #ccc;
+        }
 
-.popup-content p{
-font-size:15px;
-margin-bottom:15px;
-color:#ccc;
-}
+        .popup-content .tags {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 5px;
+            margin-bottom: 15px;
+        }
 
-.popup-content .tags{
-display:flex;
-justify-content:center;
-flex-wrap:wrap;
-gap:5px;
-margin-bottom:15px;
-}
+        .popup-content .tags span {
+            background: #b89250;
+            padding: 3px 10px;
+            border-radius: 15px;
+            font-size: 12px;
+            color: white;
+        }
 
-.popup-content .tags span{
-background:#b89250;
-padding:3px 10px;
-border-radius:15px;
-font-size:12px;
-color:white;
-}
+        .popup-content span.price {
+            font-weight: bold;
+            margin-bottom: 15px;
+            display: block;
+            color: #d4a762;
+        }
 
-.popup-content span.price{
-font-weight:bold;
-margin-bottom:15px;
-display:block;
-color:#d4a762;
-}
+        .popup-content button {
+            padding: 8px 15px;
+            border: none;
+            border-radius: 5px;
+            background: #d4a762;
+            color: white;
+            cursor: pointer;
+            transition: .3s;
+        }
 
-.popup-content button{
-padding:8px 15px;
-border:none;
-border-radius:5px;
-background:#d4a762;
-color:white;
-cursor:pointer;
-transition:.3s;
-}
+        .popup-content button:hover {
+            background: #b89250;
+        }
 
-.popup-content button:hover{
-background:#b89250;
-}
+        .popup .close {
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            font-size: 25px;
+            cursor: pointer;
+        }
 
-.popup .close{
-position:absolute;
-top:10px;
-right:15px;
-font-size:25px;
-cursor:pointer;
-}
+        /* === Responsive === */
 
-/* === Responsive === */
+        @media(max-width:768px) {
 
-@media(max-width:768px){
+            .menu-container {
+                grid-template-columns: 1fr;
+            }
 
-.menu-container{
-grid-template-columns:1fr;
-}
-
-}
-
-</style>
+        }
+    </style>
 </head>
+
 <body>
 
-<!-- ================== Categories Section ================== -->
+    <!-- ================== Categories Section ================== -->
 
-<section class="menu-categories">
+    <section class="menu-categories">
 
-<h2>Menu Categories</h2>
+        <h2>Menu Categories</h2>
 
-<div class="categories-container">
+        <div class="categories-container">
 
-<a href="drinks.html" class="category-card">
-<img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085">
-<h3>Drinks</h3>
-</a>
+            <a href="drinks.html" class="category-card">
+                <img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085">
+                <h3>Drinks</h3>
+            </a>
 
-<a href="desserts.html" class="category-card">
-<img src="https://images.unsplash.com/photo-1563805042-7684c019e1cb">
-<h3>Desserts</h3>
-</a>
+            <a href="desserts.html" class="category-card">
+                <img src="https://images.unsplash.com/photo-1563805042-7684c019e1cb">
+                <h3>Desserts</h3>
+            </a>
 
-<a href="hot-drinks.html" class="category-card">
-<img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93">
-<h3>Hot Drinks</h3>
-</a>
+            <a href="hot-drinks.html" class="category-card">
+                <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93">
+                <h3>Hot Drinks</h3>
+            </a>
 
-<a href="cold-drinks.html" class="category-card">
-<img src="https://images.unsplash.com/photo-1461023058943-07fcbe16d735">
-<h3>Cold Drinks</h3>
-</a>
+            <a href="cold-drinks.html" class="category-card">
+                <img src="https://images.unsplash.com/photo-1461023058943-07fcbe16d735">
+                <h3>Cold Drinks</h3>
+            </a>
 
-</div>
-</section>
+        </div>
+    </section>
 
-<!-- ================== Menu Section ================== -->
+    <!-- ================== Menu Section ================== -->
 
-<section id="menuSection">
+    <section id="menuSection">
 
-<h2>Our Menu</h2>
+        <h2>Our Menu</h2>
 
-<div class="filter-buttons">
-<button onclick="filterMenu('all')">All</button>
-<button onclick="filterMenu('drink')">Drinks</button>
-<button onclick="filterMenu('dessert')">Desserts</button>
-<button onclick="filterMenu('hot')">Hot</button>
-<button onclick="filterMenu('cold')">Cold</button>
-</div>
+        <div class="filter-buttons">
+            <button onclick="filterMenu('all')">All</button>
+            <button onclick="filterMenu('drink')">Drinks</button>
+            <button onclick="filterMenu('dessert')">Desserts</button>
+            <button onclick="filterMenu('hot')">Hot</button>
+            <button onclick="filterMenu('cold')">Cold</button>
+        </div>
 
-<div class="menu-container" id="menuContainer">
+        <div class="menu-container" id="menuContainer">
 
-<!-- Drinks -->
+            <!-- Drinks -->
 
-<div id="drinks" class="menu-item drink hot" onclick="openPopup(this)">
-<img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93">
-<h3>Espresso</h3>
-<p>Strong Italian coffee shot with bold aroma.</p>
-<div class="tags"><span>Strong</span><span>Hot</span><span>Classic</span></div>
-<span class="price">$3</span>
-<button onclick="addToCart(event,'Espresso',3)">Add to Cart</button>
-</div>
+            <div id="drinks" class="menu-item drink hot" onclick="openPopup(this)">
+                <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93">
+                <h3>Espresso</h3>
+                <p>Strong Italian coffee shot with bold aroma.</p>
+                <div class="tags"><span>Strong</span><span>Hot</span><span>Classic</span></div>
+                <span class="price">$3</span>
+                <button onclick="addToCart(event,'Espresso',3)">Add to Cart</button>
+            </div>
 
-<div id="cold" class="menu-item drink cold" onclick="openPopup(this)">
-<img src="https://images.unsplash.com/photo-1461023058943-07fcbe16d735">
-<h3>Iced Latte</h3>
-<p>Cold milk coffee served with ice cubes for refreshment.</p>
-<div class="tags"><span>Cold</span><span>Milk</span></div>
-<span class="price">$4</span>
-<button onclick="addToCart(event,'Iced Latte',4)">Add to Cart</button>
-</div>
+            <div id="cold" class="menu-item drink cold" onclick="openPopup(this)">
+                <img src="https://images.unsplash.com/photo-1461023058943-07fcbe16d735">
+                <h3>Iced Latte</h3>
+                <p>Cold milk coffee served with ice cubes for refreshment.</p>
+                <div class="tags"><span>Cold</span><span>Milk</span></div>
+                <span class="price">$4</span>
+                <button onclick="addToCart(event,'Iced Latte',4)">Add to Cart</button>
+            </div>
 
-<!-- Desserts -->
+            <!-- Desserts -->
 
-<div id="desserts" class="menu-item dessert" onclick="openPopup(this)">
-<img src="https://images.unsplash.com/photo-1563805042-7684c019e1cb">
-<h3>Cheesecake</h3>
-<p>Delicious strawberry cheesecake topped with fresh berries.</p>
-<div class="tags"><span>Sweet</span><span>Dessert</span></div>
-<span class="price">$5</span>
-<button onclick="addToCart(event,'Cheesecake',5)">Add to Cart</button>
-</div>
+            <div id="desserts" class="menu-item dessert" onclick="openPopup(this)">
+                <img src="https://images.unsplash.com/photo-1563805042-7684c019e1cb">
+                <h3>Cheesecake</h3>
+                <p>Delicious strawberry cheesecake topped with fresh berries.</p>
+                <div class="tags"><span>Sweet</span><span>Dessert</span></div>
+                <span class="price">$5</span>
+                <button onclick="addToCart(event,'Cheesecake',5)">Add to Cart</button>
+            </div>
 
-<div class="menu-item dessert" onclick="openPopup(this)">
-<img src="https://images.unsplash.com/photo-1605475128023-4c0b55ad3c7d">
-<h3>Chocolate Brownies</h3>
-<p>Rich chocolate brownies served warm with ice cream.</p>
-<div class="tags"><span>Chocolate</span><span>Dessert</span></div>
-<span class="price">$4</span>
-<button onclick="addToCart(event,'Brownies',4)">Add to Cart</button>
-</div>
+            <div class="menu-item dessert" onclick="openPopup(this)">
+                <img src="https://images.unsplash.com/photo-1605475128023-4c0b55ad3c7d">
+                <h3>Chocolate Brownies</h3>
+                <p>Rich chocolate brownies served warm with ice cream.</p>
+                <div class="tags"><span>Chocolate</span><span>Dessert</span></div>
+                <span class="price">$4</span>
+                <button onclick="addToCart(event,'Brownies',4)">Add to Cart</button>
+            </div>
 
-</div>
-</section>
+        </div>
+    </section>
 
-<!-- Popup -->
+    <!-- Popup -->
 
-<div id="popup" class="popup">
+    <div id="popup" class="popup">
 
-<div class="popup-content">
+        <div class="popup-content">
 
-<span class="close" onclick="closePopup()">&times;</span>
+            <span class="close" onclick="closePopup()">&times;</span>
 
-<img id="popup-img">
+            <img id="popup-img">
 
-<h3 id="popup-title"></h3>
+            <h3 id="popup-title"></h3>
 
-<p id="popup-desc"></p>
+            <p id="popup-desc"></p>
 
-<div class="tags" id="popup-tags"></div>
+            <div class="tags" id="popup-tags"></div>
 
-<span class="price" id="popup-price"></span>
+            <span class="price" id="popup-price"></span>
 
-<button id="popup-cart">Add to Cart</button>
+            <button id="popup-cart">Add to Cart</button>
 
-</div>
-</div>
+        </div>
+    </div>
 
-<script>
+    <script>
 
-/* Filter Menu */
+        /* Filter Menu */
 
-function filterMenu(type){
+        function filterMenu(type) {
 
-let items=document.querySelectorAll(".menu-item");
+            let items = document.querySelectorAll(".menu-item");
 
-items.forEach(item=>{
+            items.forEach(item => {
 
-if(type==='all'){
+                if (type === 'all') {
 
-item.style.display='block';
+                    item.style.display = 'block';
 
-}
+                }
 
-else if(item.classList.contains(type)){
+                else if (item.classList.contains(type)) {
 
-item.style.display='block';
+                    item.style.display = 'block';
 
-}
+                }
 
-else{
+                else {
 
-item.style.display='none';
+                    item.style.display = 'none';
 
-}
+                }
 
-});
+            });
 
-}
+        }
 
-/* Open Popup */
+        /* Open Popup */
 
-function openPopup(element){
+        function openPopup(element) {
 
-document.getElementById("popup").style.display="flex";
+            document.getElementById("popup").style.display = "flex";
 
-document.getElementById("popup-img").src=element.querySelector("img").src;
+            document.getElementById("popup-img").src = element.querySelector("img").src;
 
-document.getElementById("popup-title").innerText=element.querySelector("h3").innerText;
+            document.getElementById("popup-title").innerText = element.querySelector("h3").innerText;
 
-document.getElementById("popup-desc").innerText=element.querySelector("p").innerText;
+            document.getElementById("popup-desc").innerText = element.querySelector("p").innerText;
 
-document.getElementById("popup-price").innerText=element.querySelector(".price").innerText;
+            document.getElementById("popup-price").innerText = element.querySelector(".price").innerText;
 
-let tagsContainer=document.getElementById("popup-tags");
+            let tagsContainer = document.getElementById("popup-tags");
 
-tagsContainer.innerHTML="";
+            tagsContainer.innerHTML = "";
 
-element.querySelectorAll(".tags span").forEach(tag=>{
+            element.querySelectorAll(".tags span").forEach(tag => {
 
-let span=document.createElement("span");
+                let span = document.createElement("span");
 
-span.innerText=tag.innerText;
+                span.innerText = tag.innerText;
 
-tagsContainer.appendChild(span);
+                tagsContainer.appendChild(span);
 
-});
+            });
 
-document.getElementById("popup-cart").onclick=function(){
+            document.getElementById("popup-cart").onclick = function () {
 
-addToCart(null,element.querySelector("h3").innerText,parseFloat(element.querySelector(".price").innerText.replace('$','')));
+                addToCart(null, element.querySelector("h3").innerText, parseFloat(element.querySelector(".price").innerText.replace('$', '')));
 
-}
+            }
 
-}
+        }
 
-/* Close Popup */
+        /* Close Popup */
 
-function closePopup(){
+        function closePopup() {
 
-document.getElementById("popup").style.display="none";
+            document.getElementById("popup").style.display = "none";
 
-}
+        }
 
-/* Add to Cart */
+        /* Add to Cart */
 
-function addToCart(event,name,price){
+        function addToCart(event, name, price) {
 
-if(event) event.stopPropagation();
+            if (event) event.stopPropagation();
 
-alert(name+" added to cart ($"+price+")");
+            alert(name + " added to cart ($" + price + ")");
 
-}
+        }
 
-</script>
+    </script>
 
 </body>
+
 </html>

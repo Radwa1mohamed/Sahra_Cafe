@@ -3,580 +3,552 @@
 
 <head>
   <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-        <link href="logo.png" rel="icon" type="image/x-icon" />
-        <!-- <meta charset="ISO-8859-1"> -->
-<title>Sahra Cafe</title>
-        <!-- اخرك 170 حرف فقط علشان محركات البحث -->
-        <meta name="description" content="This is Our Book Store" />
-        <meta name="author" content="Radwa Mohmed" />
-        <meta name="keywords" content="books, store, online, buy, read" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="logo.png" rel="icon" type="image/x-icon" />
 
+  <title>Sahra Cafe</title>
 
+  <meta name="description" content="Sahra Cafe - Enjoy premium coffee and desserts in a cozy night atmosphere." />
+  <meta name="author" content="Radwa Mohmed" />
+  <meta name="keywords" content="cafe, coffee, desserts, drinks" />
 
+  <link rel="preconnect" href="https://images.unsplash.com">
 
-<style>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, Helvetica, sans-serif;
+      scroll-behavior: smooth;
+    }
 
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:Arial, Helvetica, sans-serif;
-scroll-behavior:smooth;
+    body {
+      background: #111;
+      color: white;
+    }
+
+    /* NAVBAR */
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 8%;
+      background: #000;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .logo {
+      font-size: 26px;
+      font-weight: bold;
+      color: #d4a762;
+    }
+
+    nav ul {
+      display: flex;
+      list-style: none;
+      gap: 30px;
+    }
+
+    nav ul li a {
+      text-decoration: none;
+      color: white;
+      font-size: 16px;
+      transition: .3s;
+    }
+
+    nav ul li a:hover {
+      color: #d4a762;
+    }
+
+    /* HERO */
+
+    .hero {
+      height: 100vh;
+      background: url("https://images.unsplash.com/photo-1554118811-1e0d58224f24?w=1600") center/cover no-repeat;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      position: relative;
+    }
+
+    .overlay {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, .6);
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 700px;
+      animation: fadeUp 1.2s ease;
+    }
+
+    .hero h1 {
+      font-size: 70px;
+      letter-spacing: 3px;
+      color: #d4a762;
+      margin-bottom: 20px;
+    }
+
+    .hero p {
+      font-size: 20px;
+      margin-bottom: 30px;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 20px;
+      justify-content: center;
+    }
+
+    .hero-buttons a {
+      text-decoration: none;
+      padding: 12px 30px;
+      background: #d4a762;
+      color: white;
+      border-radius: 6px;
+      transition: .3s;
+    }
+
+    .hero-buttons a:hover {
+      background: #b89250;
+      transform: translateY(-2px);
+    }
+
+    .btn-outline {
+      background: transparent;
+      border: 2px solid #d4a762;
+    }
+
+    .btn-outline:hover {
+      background: #d4a762;
+    }
+
+    /* SECTIONS */
+
+    section {
+      padding: 80px 10%;
+      text-align: center;
+    }
+
+    h2 {
+      font-size: 32px;
+      margin-bottom: 40px;
+      color: #d4a762;
+    }
+
+    /* MENU */
+
+    .menu-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 25px;
+    }
+
+    .menu-item {
+      background: #1c1c1c;
+      border-radius: 12px;
+      overflow: hidden;
+      transition: .4s;
+      cursor: pointer;
+    }
+
+    .menu-item:hover {
+      transform: translateY(-8px) scale(1.02);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.6);
+    }
+
+    .menu-item img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+    }
+
+    .menu-info {
+      padding: 18px;
+      text-align: left;
+    }
+
+    .menu-info h3 {
+      color: #d4a762;
+      margin-bottom: 6px;
+    }
+
+    .menu-info p {
+      font-size: 14px;
+      color: #ccc;
+      margin-bottom: 8px;
+    }
+
+    .discount-price {
+      font-weight: bold;
+      color: #d4a762;
+    }
+
+    /* BUTTON */
+
+    .btn-menu {
+      display: inline-block;
+      padding: 14px 35px;
+      margin-top: 30px;
+      font-size: 18px;
+      font-weight: bold;
+      text-decoration: none;
+      color: #fff;
+      background: linear-gradient(135deg, #d4a762, #b89250);
+      border-radius: 50px;
+      box-shadow: 0 6px 20px rgba(212, 167, 98, .5);
+      transition: .3s;
+    }
+
+    .btn-menu:hover {
+      transform: translateY(-3px) scale(1.05);
+    }
+
+    /* GALLERY */
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+
+    .gallery-item {
+      position: relative;
+      overflow: hidden;
+      border-radius: 10px;
+      cursor: pointer;
+      opacity: 0;
+      transform: translateY(40px);
+      transition: .7s;
+    }
+
+    .gallery-item.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      transition: .5s;
+    }
+
+    .gallery-item:hover img {
+      transform: scale(1.15);
+    }
+
+    .caption {
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      background: rgba(0, 0, 0, .6);
+      padding: 10px;
+      color: #d4a762;
+      font-weight: bold;
+      opacity: 0;
+      transition: .3s;
+    }
+
+    .gallery-item:hover .caption {
+      opacity: 1;
+    }
+
+    /* LIGHTBOX */
+
+    .lightbox {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, .9);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      visibility: hidden;
+      transition: .4s;
+      z-index: 2000;
+    }
+
+    .lightbox img {
+      max-width: 90%;
+      max-height: 80%;
+      border-radius: 10px;
+      transform: scale(.8);
+      transition: .4s;
+    }
+
+    .lightbox.show {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .lightbox.show img {
+      transform: scale(1);
+    }
+
+    /* ABOUT */
+
+    .about {
+      max-width: 750px;
+      margin: auto;
+      line-height: 1.9;
+      font-size: 17px;
+      color: #ccc;
+      animation: fadeUp 1s;
+    }
+    .about-parallax{
+  padding:50px 5% 20px 5%;
 }
 
-body{
-background:#111;
-color:white;
-}
+  /* TEAM */
 
-/* NAVBAR */
-
-nav{
-display:flex;
-justify-content:space-between;
-align-items:center;
-padding:20px 8%;
-background:#000;
-position:sticky;
-top:0;
-z-index:1000;
-}
-
-.logo{
-font-size:26px;
-font-weight:bold;
-color:#d4a762;
-}
-
-nav ul{
-display:flex;
-list-style:none;
+.team-container{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
 gap:30px;
 }
 
-nav ul li a{
-text-decoration:none;
-color:white;
-font-size:16px;
-transition:.3s;
-}
-
-nav ul li a:hover{
-color:#d4a762;
-}
-
-/* HERO */
-
-.hero{
-height:100vh;
-background:url("https://images.unsplash.com/photo-1554118811-1e0d58224f24") center/cover no-repeat;
-display:flex;
-justify-content:center;
-align-items:center;
-text-align:center;
-position:relative;
-}
-
-.overlay{
-position:absolute;
-top:0;
-left:0;
-width:100%;
-height:100%;
-background:rgba(0,0,0,.6);
-}
-
-.hero-content{
-position:relative;
-z-index:2;
-max-width:700px;
-}
-
-.hero h1{
-font-size:70px;
-letter-spacing:3px;
-color:#d4a762;
-margin-bottom:20px;
-}
-
-.hero p{
-font-size:20px;
-margin-bottom:30px;
-}
-
-.hero-buttons{
-display:flex;
-gap:20px;
-justify-content:center;
-}
-
-.hero-buttons a{
-text-decoration:none;
-padding:12px 30px;
-background:#d4a762;
-color:white;
-border-radius:6px;
-transition:.3s;
-}
-
-.hero-buttons a:hover{
-background:#b89250;
-}
-
-.btn-outline{
-background:transparent;
-border:2px solid #d4a762;
-}
-
-.btn-outline:hover{
-background:#d4a762;
-}
-
-/* SECTIONS */
-
-section{
-padding:80px 10%;
-text-align:center;
-}
-
-h2{
-font-size:32px;
-margin-bottom:40px;
-color:#d4a762;
-}
-
-/* MENU */
-
-.menu-container{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-gap:25px;
-}
-
-.menu-item{
+.team-card{
 background:#1c1c1c;
-border-radius:12px;
-overflow:hidden;
-transition:.3s;
-cursor:pointer;
+border-radius:15px;
+padding:30px 20px;
+transition:.4s;
 }
 
-.menu-item:hover{
-transform:translateY(-8px);
-box-shadow:0 10px 25px rgba(0,0,0,0.6);
+.team-card:hover{
+transform:translateY(-10px);
+box-shadow:0 12px 30px rgba(0,0,0,.6);
 }
 
-.menu-item img{
-width:100%;
-height:180px;
-object-fit:cover;
-}
-
-.menu-info{
-padding:18px;
-text-align:left;
-}
-
-.menu-info h3{
-color:#d4a762;
-margin-bottom:6px;
-}
-
-.menu-info p{
-font-size:14px;
-color:#ccc;
-margin-bottom:8px;
-}
-
-.menu-info span{
-font-weight:bold;
-color:#d4a762;
-}
-
-/* GALLERY */
-
-.gallery{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-gap:20px;
-}
-
-.gallery img{
-width:100%;
-border-radius:10px;
-transition:.3s;
-}
-
-.gallery img:hover{
-transform:scale(1.05);
-}
-
-/* ABOUT */
-
-.about{
-max-width:700px;
-margin:auto;
-line-height:1.8;
-font-size:17px;
-}
-
-/* CONTACT */
-
-.contact p{
-margin:10px 0;
-}
-
-/* FOOTER */
-
-footer{
-background:#000;
-text-align:center;
-padding:20px;
-}
-
-/* WHATSAPP */
-
-.whatsapp{
-position:fixed;
-bottom:25px;
-right:25px;
-background:#25D366;
-color:white;
-padding:14px 18px;
+.team-card img{
+width:150px;
+height:150px;
 border-radius:50%;
-font-size:20px;
-text-decoration:none;
+object-fit:cover;
+margin:auto;
+display:block;
+border:4px solid #d4a762;
+margin-bottom:15px;
 }
 
-/* MOBILE */
-
-@media (max-width:768px){
-
-.hero h1{
-font-size:40px;
+.team-info h3{
+color:#d4a762;
+margin-bottom:5px;
 }
 
-.hero-buttons{
-flex-direction:column;
+.team-info p{
+color:#ccc;
+font-size:14px;
+margin-bottom:10px;
 }
 
-nav ul{
-gap:15px;
+    /* CONTACT */
+
+    .contact p {
+      margin: 10px 0;
+    }
+
+    /* FOOTER */
+
+    footer {
+      background: #000;
+      text-align: center;
+      padding: 20px;
+    }
+
+    /* WHATSAPP */
+
+    .whatsapp {
+      position: fixed;
+      bottom: 25px;
+      right: 25px;
+      background: #25D366;
+      color: white;
+      padding: 14px 18px;
+      border-radius: 50%;
+      font-size: 20px;
+      text-decoration: none;
+    }
+
+    /* ANIMATIONS */
+
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(40px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .animate {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: 1s;
+    }
+
+    .animate.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+.about-card{
+max-width:750px;
+margin:auto;
+padding:40px 35px;
+background:#1c1c1c;
+border-radius:15px;
+line-height:1.9;
+font-size:17px;
+color:#ccc;
+box-shadow:0 10px 35px rgba(0,0,0,.6);
+border:1px solid rgba(212,167,98,.2);
+transition:.4s;
 }
 
+.about-card:hover{
+transform:translateY(-6px);
+box-shadow:0 15px 40px rgba(0,0,0,.8);
 }
 
-</style>
+
+
+  </style>
+
+  
 </head>
 
 <body>
 
-<!-- NAVBAR -->
+  <nav>
 
-<nav>
+    <div class="logo">Sahra Cafe</div>
 
-<div class="logo">Sahra Cafe</div>
+    <ul>
+      <li><a href="#">Home</a></li>
+      <li><a href="menu.html">Menu</a></li>
+      <li><a href="#gallery">Gallery</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
 
-<ul>
-<li><a href="#">Home</a></li>
-<li><a href="meue.html">Menu</a></li>
-<li><a href="#gallery">Gallery</a></li>
-<li><a href="#about">About</a></li>
-<li><a href="#contact">Contact</a></li>
-</ul>
+  </nav>
 
-</nav>
+  <section class="hero">
 
-<!-- HERO -->
+    <div class="overlay"></div>
 
-<section class="hero">
+    <div class="hero-content">
 
-<div class="overlay"></div>
+      <h1>Sahra Cafe</h1>
 
-<div class="hero-content">
+      <p>Enjoy your coffee in the perfect night atmosphere</p>
 
-<h1>Sahra Cafe</h1>
+      <div class="hero-buttons">
 
-<p>Enjoy your coffee in the perfect night atmosphere</p>
+        <a href="#menu">View Menu</a>
+        <a href="#contact" class="btn-outline">Reserve Now</a>
 
-<div class="hero-buttons">
-
-<a href="#menu">View Menu</a>
-
-<a href="#contact" class="btn-outline">Reserve Now</a>
-
-</div>
-
-</div>
-
-</section>
-
-<!-- MENU -->
-<section id="menu-preview">
-  <h2>Featured Menu</h2>
-  <div class="menu-container">
-    <!-- Preview items -->
-    <div class="menu-item">
-      <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93">
-      <div class="menu-info">
-        <h3>Espresso</h3>
-        <p>Rich espresso shot</p>
-        <span class="discount-price">$2.5</span> <!-- السعر بعد الخصم -->
       </div>
+
     </div>
 
-    <div class="menu-item">
-      <img src="https://images.unsplash.com/photo-1511920170033-f8396924c348">
-      <div class="menu-info">
-        <h3>Cappuccino</h3>
-        <p>Espresso with milk foam</p>
-        <span class="discount-price">$3.5</span> <!-- السعر بعد الخصم -->
+  </section>
+
+  <!-- MENU -->
+
+  <section id="menu-preview" class="animate">
+
+    <h2>Featured Menu</h2>
+
+    <div class="menu-container">
+
+      <div class="menu-item">
+        <img loading="lazy" src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=600">
+        <div class="menu-info">
+          <h3>Espresso</h3>
+          <p>Rich espresso shot</p>
+          <span class="discount-price">$2.5</span>
+        </div>
       </div>
-    </div>
 
-    <div class="menu-item">
-      <img src="https://images.unsplash.com/photo-1461023058943-07fcbe16d735">
-      <div class="menu-info">
-        <h3>Latte</h3>
-        <p>Smooth milk coffee</p>
-        <span class="discount-price">$3.5</span> <!-- السعر بعد الخصم -->
+      <div class="menu-item">
+        <img loading="lazy" src="https://images.unsplash.com/photo-1511920170033-f8396924c348?w=600">
+        <div class="menu-info">
+          <h3>Cappuccino</h3>
+          <p>Espresso with milk foam</p>
+          <span class="discount-price">$3.5</span>
+        </div>
       </div>
+
+      <div class="menu-item">
+        <img loading="lazy" src="https://images.unsplash.com/photo-1461023058943-07fcbe16d735?w=600">
+        <div class="menu-info">
+          <h3>Latte</h3>
+          <p>Smooth milk coffee</p>
+          <span class="discount-price">$3.5</span>
+        </div>
+      </div>
+
     </div>
-  </div>
 
-  <a href="menu.html" class="btn-menu">
-    View Full Menu
-  </a>
-</section>
+    <a href="menu.html" class="btn-menu">View Full Menu</a>
 
-<style>
-/* زرار المينو الجديد */
-.btn-menu {
-  display: inline-block;
-  padding: 14px 35px;
-  font-size: 18px;
-  font-weight: bold;
-  text-decoration: none;
-  color: #fff;
-  background: linear-gradient(135deg, #d4a762, #b89250);
-  border-radius: 50px;
-  box-shadow: 0 6px 20px rgba(212, 167, 98, 0.5);
-  transition: all 0.3s ease;
-  position: relative;
-  overflow: hidden;
-}
+  </section>
 
-.btn-menu::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
-  background: rgba(255,255,255,0.2);
-  transform: skewX(-45deg);
-  transition: all 0.5s ease;
-}
+  <!-- GALLERY -->
 
-.btn-menu:hover::before {
-  left: 200%;
-}
+  <section id="gallery">
 
-.btn-menu:hover {
-  transform: translateY(-3px) scale(1.05);
-  box-shadow: 0 10px 25px rgba(212, 167, 98, 0.7);
-}
+    <h2>Gallery</h2>
 
-/* الأسعار بعد الخصم */
-.discount-price {
-  font-weight: bold;
-  color: #d4a762;
-  font-size: 16px;
-}
-</style>
-<!-- GALLERY -->
-<section id="gallery">
-  <h2>Gallery</h2>
+    <div class="gallery">
 
-  <div class="gallery">
-    <div class="gallery-item" onclick="openPopup(this)">
-      <img src="s1.jpg" alt="Cafe Interior">
-      <div class="caption">Cozy Interior</div>
+      <div class="gallery-item"><img src="s1.jpg">
+        <div class="caption">Cafe Interior</div>
+      </div>
+      <div class="gallery-item"><img src="s2.jpg">
+        <div class="caption">Special Coffee</div>
+      </div>
+      <div class="gallery-item"><img src="s3.jpg">
+        <div class="caption">Desserts</div>
+      </div>
+      <div class="gallery-item"><img src="s4.jpg">
+        <div class="caption">Night Atmosphere</div>
+      </div>
+      <div class="gallery-item"><img src="s5.jpg">
+        <div class="caption">Cafe</div>
+      </div>
+      <div class="gallery-item"><img src="s6.jpg">
+        <div class="caption">Coffee</div>
+      </div>
+
     </div>
-    <div class="gallery-item" onclick="openPopup(this)">
-      <img src="s2.jpg" alt="Coffee Cups">
-      <div class="caption">Our Special Coffee</div>
-    </div>
-    <div class="gallery-item" onclick="openPopup(this)">
-      <img src="s3.jpg" alt="Desserts">
-      <div class="caption">Delicious Desserts</div>
-    </div>
-    <div class="gallery-item" onclick="openPopup(this)">
-      <img src="s4.jpg" alt="Evening Ambience">
-      <div class="caption">Evening Ambience</div>
-    </div>
-    <div class="gallery-item" onclick="openPopup(this)">
-      <img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085" alt="Cafe Interior">
-      <div class="caption">Cozy Interior</div>
-    </div>
-    <div class="gallery-item" onclick="openPopup(this)">
-      <img src="https://images.unsplash.com/photo-1507133750040-4a8f57021571" alt="Coffee Cups">
-      <div class="caption">Our Special Coffee</div>
-    </div>
-    <div class="gallery-item" onclick="openPopup(this)">
-      <img src="https://images.unsplash.com/photo-1511920170033-f8396924c348" alt="Desserts">
-      <div class="caption">Delicious Desserts</div>
-    </div>
-    <div class="gallery-item" onclick="openPopup(this)">
-      <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93" alt="Evening Ambience">
-      <div class="caption">Evening Ambience</div>
-    </div>
-    <div class="gallery-item" onclick="openPopup(this)">
-      <img src="s8.jpg" alt="Cafe Interior">
-      <div class="caption">Cozy Interior</div>
-    </div>
-    <div class="gallery-item" onclick="openPopup(this)">
-      <img src="s7.jpg" alt="Coffee Cups">
-      <div class="caption">Our Special Coffee</div>
-    </div>
-    <div class="gallery-item" onclick="openPopup(this)">
-      <img src="s6.jpg" alt="Desserts">
-      <div class="caption">Delicious Desserts</div>
-    </div>
-    <div class="gallery-item" onclick="openPopup(this)">
-      <img src="s5.jpg" alt="Evening Ambience">
-      <div class="caption">Evening Ambience</div>
-    </div>
-  </div>
-</section>
 
-<!-- Popup -->
-<div id="popup" class="popup">
-  <div class="popup-content">
-    <span class="close" onclick="closePopup()">&times;</span>
-    <img id="popup-img" src="">
-  </div>
-</div>
+  </section>
 
-<style>
-/* Gallery Enhancements */
-.gallery{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-  gap:20px;
-}
-.gallery-item{
-  position:relative;
-  overflow:hidden;
-  border-radius:10px;
-  cursor:pointer;
-  transform:translateY(30px);
-  opacity:0;
-  transition:all .6s ease;
-}
-.gallery-item.show{
-  opacity:1;
-  transform:translateY(0);
-}
-.gallery-item img{
-  width:100%;
-  height:200px;
-  object-fit:cover;
-  transition:.4s;
-  border-radius:10px;
-}
-.gallery-item:hover img{
-  transform:scale(1.08);
-}
-.gallery-item .caption{
-  position:absolute;
-  bottom:0;
-  width:100%;
-  background:rgba(0,0,0,0.6);
-  padding:10px;
-  color:#d4a762;
-  text-align:center;
-  font-weight:bold;
-  opacity:0;
-  transition:.3s;
-}
-.gallery-item:hover .caption{
-  opacity:1;
-}
 
-/* Popup */
-.popup{
-  display:none;
-  position:fixed;
-  top:0;
-  left:0;
-  width:100%;
-  height:100%;
-  background:rgba(0,0,0,0.95);
-  justify-content:center;
-  align-items:center;
-  z-index:2000;
-}
-.popup-content{
-  position:relative;
-  max-width:90%;
-  max-height:90%;
-  border-radius:15px;
-  overflow:hidden;
-  animation:zoom .3s;
-}
-.popup-content img{
-  width:80%;        /* تصغير حجم الصورة */
-  max-width:600px;  /* الحد الأقصى للعرض */
-  max-height:80vh;  /* الحد الأقصى للارتفاع */
-  height:auto;
-  display:block;
-  margin:auto;
-}
-.popup .close{
-  position:absolute;
-  top:10px;
-  right:15px;
-  font-size:30px;
-  color:#d4a762;
-  cursor:pointer;
-}
-
-@keyframes zoom{
-  from{transform:scale(.9);opacity:0;}
-  to{transform:scale(1);opacity:1;}
-}
-</style>
-
-<script>
-function openPopup(element){
-  document.getElementById("popup").style.display="flex";
-  document.getElementById("popup-img").src = element.querySelector("img").src;
-}
-function closePopup(){
-  document.getElementById("popup").style.display="none";
-}
-
-// Scroll animation
-const items = document.querySelectorAll(".gallery-item");
-const observer = new IntersectionObserver(entries=>{
-  entries.forEach(entry=>{
-    if(entry.isIntersecting){
-      entry.target.classList.add("show");
-    }
-  });
-});
-items.forEach(el=>observer.observe(el));
-</script>
-
-<!-- ABOUT -->
-
-<section id="about">
+<section id="about" class="animate">
 
 <h2>About Sahra</h2>
 
-<p class="about">
+<div class="about-card">
+
+<p>
 
 Sahra Cafe is a cozy place designed for coffee lovers and night vibes.
 Enjoy premium coffee, delicious desserts, and a relaxing atmosphere
@@ -584,38 +556,106 @@ perfect for friends and evening gatherings.
 
 </p>
 
-</section>
-
-<!-- CONTACT -->
-
-<section id="contact">
-
-<h2>Contact Us</h2>
-
-<div class="contact">
-
-<p>📍 Location: Cairo</p>
-<p>📞 Phone: 01000000000</p>
-<p>🕒 Open Daily: 10 AM - 2 AM</p>
-
 </div>
 
 </section>
 
-<!-- FOOTER -->
+<!-- TEAM -->
+  <section class="team-section animate">
+    <h2>Our Team</h2>
+    <div class="team-container">
+      <div class="team-card"> <img loading="lazy"
+          src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400">
+        <div class="team-info">
+          <h3>Ahmed Hassan</h3>
+          <p>Head Barista</p>
+        </div>
+      </div>
+      <div class="team-card"> <img loading="lazy"
+          src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400">
+        <div class="team-info">
+          <h3>Sarah Ali</h3>
+          <p>Pastry Chef</p>
+        </div>
+      </div>
+      <div class="team-card"> <img loading="lazy"
+          src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=400">
+        <div class="team-info">
+          <h3>Mohamed Adel</h3>
+          <p>Manager</p>
+        </div>
+      </div>
+    </div>
+  </section>
 
-<footer>
+  <section id="contact">
 
-<p>© 2026 Sahra Cafe - All Rights Reserved</p>
+    <h2>Contact Us</h2>
 
-</footer>
+    <div class="contact">
 
-<a class="whatsapp" href="https://wa.me/201000000000" target="_blank">
-💬
-</a>
+      <p>📍 Location: Cairo</p>
+      <p>📞 Phone: 01000000000</p>
+      <p>🕒 Open Daily: 10 AM - 2 AM</p>
+
+    </div>
+
+  </section>
+
+  <footer>
+
+    <p>© 2026 Sahra Cafe - All Rights Reserved</p>
+
+  </footer>
+
+  <a class="whatsapp" href="https://wa.me/201000000000" target="_blank">💬</a>
+
+  <div class="lightbox" id="lightbox">
+    <img src="">
+  </div>
+
+  <script>
+
+    const elements = document.querySelectorAll(".animate, .gallery-item");
+
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+
+          if (entry.target.classList.contains("gallery-item")) {
+
+            setTimeout(() => {
+              entry.target.classList.add("show");
+            }, 200 * Array.from(entry.target.parentNode.children).indexOf(entry.target));
+
+          } else {
+            entry.target.classList.add("show");
+          }
+
+        }
+      });
+    });
+
+    elements.forEach(el => observer.observe(el));
 
 
+    const galleryImages = document.querySelectorAll(".gallery-item img");
+    const lightbox = document.getElementById("lightbox");
+    const lightboxImg = lightbox.querySelector("img");
+
+    galleryImages.forEach(img => {
+      img.onclick = () => {
+        lightbox.classList.add("show");
+        lightboxImg.src = img.src;
+      };
+    });
+
+    lightbox.onclick = () => {
+      lightbox.classList.remove("show");
+    };
+
+  </script>
 
 </body>
+
 </html>
-```
