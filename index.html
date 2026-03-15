@@ -362,12 +362,7 @@ font-size:14px;
 margin-bottom:10px;
 }
 
-    /* CONTACT */
-
-    .contact p {
-      margin: 10px 0;
-    }
-
+    
     /* FOOTER */
 
     footer {
@@ -550,7 +545,165 @@ box-shadow:0 15px 40px rgba(0,0,0,.8);
       }
     }
 
+    
+    /* CONTACT SECTION - PREMIUM RE-DESIGN */
 
+    #contact {
+      padding: 80px 10% 0 10%;
+    }
+
+    .contact-wrapper {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      margin-bottom: 50px;
+    }
+     .contact-info h3, .contact-form h3, .feedback-box h3 {
+        color: #d4a762;
+        margin-bottom: 25px;
+        font-size: 22px;
+        border-bottom: 1px solid rgba(212, 167, 98, 0.2);
+        padding-bottom: 10px;
+        display: inline-block;
+    }
+
+    .info-item {
+        margin-bottom: 20px;
+        font-size: 16px;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+    }
+
+    /* تنسيق أزرار السوشيال ميديا الجديد */
+    .social-pills {
+        display: flex;
+        gap: 12px;
+        flex-wrap: wrap;
+    }
+
+    .social-pill {
+        padding: 8px 15px;
+        background: #111;
+        border: 1px solid #333;
+        border-radius: 50px;
+        color: #ccc;
+        text-decoration: none;
+        font-size: 13px;
+        transition: 0.3s;
+    }
+
+    .social-pill:hover {
+        border-color: #d4a762;
+        color: #d4a762;
+        transform: translateY(-3px);
+    }
+
+
+    .contact-info,
+    .contact-form,
+    .feedback-box {
+      background: #1c1c1c;
+      padding: 35px;
+      border-radius: 20px;
+      border: 1px solid rgba(212, 167, 98, 0.1);
+      text-align: left;
+    }
+
+    .contact-info h3,
+    .contact-form h3,
+    .feedback-box h3 {
+      color: #d4a762;
+      margin-bottom: 25px;
+      font-size: 22px;
+      border-bottom: 1px solid rgba(212, 167, 98, 0.2);
+      padding-bottom: 10px;
+      display: inline-block;
+    }
+
+    .social-pills {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .social-pill {
+      padding: 8px 15px;
+      background: #111;
+      border: 1px solid #333;
+      border-radius: 50px;
+      color: #ccc;
+      text-decoration: none;
+      font-size: 13px;
+      transition: 0.3s;
+    }
+
+    .feedback-box {
+      grid-column: 1 / -1;
+      background: linear-gradient(145deg, #1c1c1c, #161616);
+    }
+
+    /* MODIFIED INPUTS AND BUTTONS */
+    .form-group input,
+    .form-group textarea,
+    .rating-select {
+      width: 100%;
+      box-sizing: border-box; /* Ensures width includes padding */
+      padding: 12px 15px;
+      background: #111 !important;
+      border: 1px solid #333;
+      border-radius: 10px;
+      color: white;
+      margin-bottom: 15px;
+      outline: none;
+      font-size: 14px;
+    }
+
+    .btn-send {
+      width: 50%;
+      text-align: center;
+      box-sizing: border-box; /* Critical: Prevents overflow */
+      padding: 12px 20px;
+      background: linear-gradient(135deg, #d4a762, #b89250);
+      border: none;
+      border-radius: 8px;
+      color: #000;
+      font-weight: bold;
+      font-size: 14px; /* Balanced font size */
+      cursor: pointer;
+      transition: all 0.3s ease;
+      display: block;
+      margin-top: 5px;
+      text-transform: uppercase;
+    }
+
+    .btn-send:hover {
+      transform: translateY(-2px);
+      filter: brightness(1.1);
+    }
+
+    .map-container {
+      width: 100%;
+      height: 350px;
+      margin-top: 60px;
+      filter: grayscale(100%) invert(90%) contrast(90%);
+      border-top: 3px solid #d4a762;
+      overflow: hidden;
+    }
+
+    .map-container iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+
+
+
+  
+  
+
+
+   
   </style>
 
   
@@ -755,20 +908,60 @@ perfect for friends and evening gatherings.
   </section>
 
 
-  <section id="contact">
 
-    <h2>Contact Us</h2>
+ <section id="contact" class="animate">
+    <h2>Connect With Us</h2>
+    
+    <div class="contact-wrapper">
+        <div class="contact-info">
+            <h3>Direct Contact</h3>
+            <div class="info-item"><span>📍</span> Maadi, Cairo, Egypt</div>
+            <div class="info-item"><span>📞</span> +20 100 000 0000</div>
+            <div class="info-item"><span>✉️</span> info@sahracafe.com</div>
+            
+            <h3 style="margin-top: 20px;">Follow Us</h3>
+            <div class="social-pills">
+                <a href="#" class="social-pill">Facebook</a>
+                <a href="#" class="social-pill">Instagram</a>
+                <a href="#" class="social-pill">TikTok</a>
+            </div>
+        </div>
 
-    <div class="contact">
+        <div class="contact-form">
+            <h3>Send a Message</h3>
+            <form>
+                <div class="form-group"><input type="text" placeholder="Your Name"></div>
+                <div class="form-group"><input type="email" placeholder="Email Address"></div>
+                <div class="form-group"><textarea rows="2" placeholder="How can we help?"></textarea></div>
+                <button type="submit" class="btn-send">Send Inquiry</button>
+            </form>
+        </div>
 
-      <p>📍 Location: Cairo</p>
-      <p>📞 Phone: 01000000000</p>
-      <p>🕒 Open Daily: 10 AM - 2 AM</p>
-
+        <div class="feedback-box">
+            <h3>Complaints & Feedback</h3>
+            <p style="color: #999; margin-bottom: 20px; font-size: 14px;">Your experience matters. Tell us how we can improve.</p>
+            
+            <form style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 15px;">
+                <select class="rating-select">
+                    <option value="">Rate your experience</option>
+                    <option>Excellent 🌟🌟🌟🌟🌟</option>
+                    <option>Good 🌟🌟🌟🌟</option>
+                    <option>Average 🌟🌟🌟</option>
+                </select>
+                <input type="text" class="rating-select" placeholder="Order Number (Optional)">
+                <textarea style="grid-column: 1 / -1;" rows="2" placeholder="Your feedback..."></textarea>
+                <button type="submit" class="btn-send" style="grid-column: 1 / -1;">Submit Feedback</button>
+            </form>
+        </div>
     </div>
 
-  </section>
-
+    <div class="map-container animate">
+        <iframe 
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3456.123456789!2d31.2357!3d30.0444!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzDCsDAyJzQwLjAiTiAzMcKwMTQnMDguNSJF!5e0!3m2!1sen!2seg!4v1620000000000!5m2!1sen!2seg" 
+            allowfullscreen="" loading="lazy">
+        </iframe>
+    </div>
+</section>
   <footer>
 
     <p>© 2026 Sahra Cafe - All Rights Reserved</p>
