@@ -67,7 +67,7 @@
     /* HERO */
 
     .hero {
-      height: 100vh;
+      height: 80vh;
       background: url("https://images.unsplash.com/photo-1554118811-1e0d58224f24?w=1600") center/cover no-repeat;
       display: flex;
       justify-content: center;
@@ -434,6 +434,60 @@ transform:translateY(-6px);
 box-shadow:0 15px 40px rgba(0,0,0,.8);
 }
 
+/* REVIEWS SECTION */
+    .reviews-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 25px;
+      margin-top: 40px;
+    }
+
+    .review-card {
+      background: #1c1c1c;
+      padding: 30px;
+      border-radius: 15px;
+      border: 1px solid rgba(212, 167, 98, 0.2);
+      text-align: left;
+      transition: 0.3s;
+      position: relative;
+    }
+
+    .review-card:hover {
+      border-color: #d4a762;
+      transform: translateY(-5px);
+    }
+
+    .stars {
+      color: #d4a762;
+      margin-bottom: 15px;
+      font-size: 18px;
+    }
+
+    .review-text {
+      font-style: italic;
+      color: #ccc;
+      line-height: 1.6;
+      margin-bottom: 20px;
+    }
+
+    .reviewer-info {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .reviewer-info img {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+
+    .reviewer-info h4 {
+      color: #d4a762;
+      font-size: 16px;
+    }
+
 
 /* RESPONSIVE DESIGN (Media Queries) */
 
@@ -606,6 +660,13 @@ box-shadow:0 15px 40px rgba(0,0,0,.8);
       <div class="gallery-item"><img src="s6.jpg">
         <div class="caption">Coffee</div>
       </div>
+      <div class="gallery-item"><img src="s4.jpg">
+        <div class="caption">Night Atmosphere</div>
+      </div>
+      <div class="gallery-item"><img src="s5.jpg">
+        <div class="caption">Cafe</div>
+      </div>
+      
 
     </div>
 
@@ -657,6 +718,42 @@ perfect for friends and evening gatherings.
       </div>
     </div>
   </section>
+
+   <section id="reviews" class="animate">
+    <h2>What Our Guests Say</h2>
+    
+    <div class="reviews-container">
+      
+      <div class="review-card">
+        <div class="stars">★★★★★</div>
+        <p class="review-text">"Best atmosphere in Cairo! The coffee is authentic and the staff is very professional. Highly recommended for night vibes."</p>
+        <div class="reviewer-info">
+          <img src="https://i.pravatar.cc/150?u=1" alt="Guest">
+          <h4>Ahmed Rayan</h4>
+        </div>
+      </div>
+
+      <div class="review-card">
+        <div class="stars">★★★★★</div>
+        <p class="review-text">"The desserts are out of this world! Especially the Molten Cake. A perfect place to study or hang out with friends."</p>
+        <div class="reviewer-info">
+          <img src="https://i.pravatar.cc/150?u=2" alt="Guest">
+          <h4>Laila Khaled</h4>
+        </div>
+      </div>
+
+      <div class="review-card">
+        <div class="stars">★★★★☆</div>
+        <p class="review-text">"I love the music and the lighting here. The Espresso is 10/10. I just wish they had more outdoor seating."</p>
+        <div class="reviewer-info">
+          <img src="https://i.pravatar.cc/150?u=5" alt="Guest">
+          <h4>Omar Ibraheem</h4>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
 
   <section id="contact">
 
