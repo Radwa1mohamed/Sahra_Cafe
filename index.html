@@ -137,6 +137,15 @@
       padding: 80px 10%;
       text-align: center;
     }
+    /* تقليل المسافة بين About و Team */
+    #about {
+      padding-bottom: 20px; /* تقليل المسافة من أسفل قسم الأباوت */
+    }
+
+    .team-section {
+      padding-top: 20px;    /* تقليل المسافة من أعلى قسم التيم */
+    }
+
 
     h2 {
       font-size: 32px;
@@ -308,7 +317,7 @@
       animation: fadeUp 1s;
     }
     .about-parallax{
-  padding:50px 5% 20px 5%;
+      margin-bottom: 10px;
 }
 
   /* TEAM */
@@ -426,6 +435,67 @@ box-shadow:0 15px 40px rgba(0,0,0,.8);
 }
 
 
+/* RESPONSIVE DESIGN (Media Queries) */
+
+    /* للشاشات المتوسطة (التابلت) */
+    @media (max-width: 992px) {
+      .hero h1 { font-size: 50px; }
+      nav { padding: 20px 5%; }
+      section { padding: 60px 5%; }
+    }
+
+    /* للشاشات الصغيرة (الموبايل) */
+    @media (max-width: 768px) {
+      nav {
+        flex-direction: column; /* شعار الكافيه فوق والقائمة تحته */
+        gap: 15px;
+      }
+
+      nav ul {
+        gap: 15px;
+        flex-wrap: wrap; /* عشان اللينكات تنزل تحت بعض لو الشاشة ضيقة جداً */
+        justify-content: center;
+      }
+
+      .hero h1 {
+        font-size: 40px;
+      }
+
+      .hero p {
+        font-size: 18px;
+      }
+
+      .hero-buttons {
+        flex-direction: column; /* الأزرار فوق بعض في الموبايل */
+        gap: 10px;
+      }
+
+      .about-card {
+        padding: 25px 20px;
+        font-size: 16px;
+      }
+
+      h2 {
+        font-size: 26px;
+      }
+
+      .team-card img {
+        width: 120px;
+        height: 120px;
+      }
+    }
+
+    /* تعديل الصور في الجاليري عشان تملأ الشاشة في الموبايل */
+    @media (max-width: 480px) {
+      .gallery {
+        grid-template-columns: 1fr; /* صورة واحدة في كل صف */
+      }
+      
+      .menu-container {
+        grid-template-columns: 1fr; /* صنف واحد في كل صف */
+      }
+    }
+
 
   </style>
 
@@ -439,7 +509,7 @@ box-shadow:0 15px 40px rgba(0,0,0,.8);
     <div class="logo">Sahra Cafe</div>
 
     <ul>
-      <li><a href="#">Home</a></li>
+      <li><a href="index.html">Home</a></li>
       <li><a href="menu.html">Menu</a></li>
       <li><a href="#gallery">Gallery</a></li>
       <li><a href="#about">About</a></li>
@@ -460,7 +530,7 @@ box-shadow:0 15px 40px rgba(0,0,0,.8);
 
       <div class="hero-buttons">
 
-        <a href="#menu">View Menu</a>
+        <a href="menu.html">View Menu</a>
         <a href="#contact" class="btn-outline">Reserve Now</a>
 
       </div>
