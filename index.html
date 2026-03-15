@@ -436,20 +436,29 @@ box-shadow:0 15px 40px rgba(0,0,0,.8);
 
 /* REVIEWS SECTION */
     .reviews-container {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 25px;
-      margin-top: 40px;
+      display: flex; /* غيرناها من grid لـ flex */
+      gap: 20px;
+      overflow-x: auto; /* ده اللي بيعمل السكرول الجانبي */
+      padding: 20px 10px;
+      scroll-snap-type: x mandatory; /* بيخلي الكارت يثبت في نص الشاشة وأنتِ بتقلبي */
+      -webkit-overflow-scrolling: touch; /* سكرول ناعم في الآيفون */
+    }
+
+    /* عشان نخفي شكل شريط السكرول الوحش في المتصفحات */
+    .reviews-container::-webkit-scrollbar {
+      display: none;
     }
 
     .review-card {
+      min-width: 300px; /* بنثبت عرض الكارت عشان ميكشش جنب بعضه */
+      flex-shrink: 0;
+      scroll-snap-align: center;
       background: #1c1c1c;
       padding: 30px;
       border-radius: 15px;
       border: 1px solid rgba(212, 167, 98, 0.2);
       text-align: left;
       transition: 0.3s;
-      position: relative;
     }
 
     .review-card:hover {
@@ -486,6 +495,11 @@ box-shadow:0 15px 40px rgba(0,0,0,.8);
     .reviewer-info h4 {
       color: #d4a762;
       font-size: 16px;
+    }
+    @media (max-width: 768px) {
+      .review-card {
+        min-width: 85%; /* الكارت ياخد أغلب مساحة الشاشة والباقي يظهر منه جزء الكارت اللي بعده */
+      }
     }
 
 
