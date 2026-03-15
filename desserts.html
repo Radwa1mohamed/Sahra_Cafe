@@ -1,0 +1,664 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sahra Cafe - Desserts</title>
+
+<style>
+
+body{
+font-family:Arial, Helvetica, sans-serif;
+margin:0;
+background:#111;
+color:white;
+overflow-x:hidden;
+position:relative;
+}
+
+/* Rain */
+
+.rain{
+position:fixed;
+width:100%;
+height:100%;
+top:0;
+left:0;
+pointer-events:none;
+z-index:0;
+}
+
+.drop{
+position:absolute;
+width:2px;
+height:15px;
+background:rgba(255,255,255,0.3);
+animation:rainFall linear infinite;
+}
+
+@keyframes rainFall{
+0%{
+transform:translateY(-100px);
+opacity:0;
+}
+50%{
+opacity:1;
+}
+100%{
+transform:translateY(100vh);
+opacity:0;
+}
+}
+
+/* Navbar */
+
+.navbar{
+position:sticky;
+top:0;
+background:#1c1c1c;
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:15px 8%;
+z-index:1000;
+box-shadow:0 3px 10px rgba(0,0,0,0.4);
+}
+
+.logo{
+color:#d4a762;
+font-size:22px;
+font-weight:bold;
+}
+
+.nav-links a{
+color:white;
+text-decoration:none;
+margin-left:25px;
+font-size:15px;
+transition:.3s;
+}
+
+.nav-links a:hover{
+color:#d4a762;
+}
+
+/* Header */
+
+.header{
+text-align:center;
+padding:60px 20px;
+background:#1c1c1c;
+animation:fadeDown .5s ease;
+}
+
+.header h1{
+color:#d4a762;
+margin-bottom:10px;
+}
+
+.header p{
+color:#ccc;
+}
+
+/* Menu Grid */
+
+.menu-container{
+padding:60px 10%;
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:30px;
+position:relative;
+z-index:2;
+}
+
+/* Dessert Card */
+
+.menu-item{
+background:#1c1c1c;
+border-radius:15px;
+overflow:hidden;
+cursor:pointer;
+transition:.3s;
+opacity:0;
+transform:translateY(40px);
+}
+
+.menu-item.show{
+opacity:1;
+transform:translateY(0);
+transition:all .6s ease;
+}
+
+.menu-item:hover{
+transform:translateY(-10px) scale(1.03);
+box-shadow:0 10px 25px rgba(0,0,0,0.5);
+}
+
+.menu-item img{
+width:100%;
+height:220px;
+object-fit:cover;
+transition:.4s;
+}
+
+.menu-item:hover img{
+transform:scale(1.08);
+}
+
+.menu-item h3{
+margin:15px 0 5px;
+color:#d4a762;
+text-align:center;
+}
+
+.menu-item p{
+font-size:14px;
+color:#ccc;
+padding:0 15px;
+text-align:center;
+min-height:40px;
+}
+
+.menu-item span.price{
+display:block;
+text-align:center;
+margin:10px 0;
+font-weight:bold;
+color:#d4a762;
+}
+
+.menu-item button{
+display:block;
+margin:10px auto 20px;
+padding:8px 18px;
+border:none;
+border-radius:5px;
+background:#d4a762;
+color:white;
+cursor:pointer;
+transition:.3s;
+}
+
+.menu-item button:hover{
+background:#b89250;
+transform:scale(1.05);
+}
+
+/* Popup */
+
+.popup{
+display:none;
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,0.9);
+justify-content:center;
+align-items:center;
+animation:fadeIn .3s;
+z-index:2000;
+}
+
+.popup-content{
+background:#1c1c1c;
+padding:30px;
+border-radius:15px;
+max-width:500px;
+width:90%;
+text-align:center;
+position:relative;
+animation:zoom .3s;
+z-index:2001;
+}
+
+.popup-content img{
+width:100%;
+height:300px;
+object-fit:cover;
+border-radius:10px;
+margin-bottom:15px;
+}
+
+.popup-content h3{
+color:#d4a762;
+}
+
+.popup-content p{
+color:#ccc;
+}
+
+.popup-content span{
+display:block;
+margin:10px 0;
+color:#d4a762;
+font-weight:bold;
+}
+
+.popup .close{
+position:absolute;
+top:10px;
+right:15px;
+font-size:25px;
+cursor:pointer;
+}
+
+/* Animations */
+
+@keyframes fadeDown{
+from{
+opacity:0;
+transform:translateY(-20px);
+}
+to{
+opacity:1;
+transform:translateY(0);
+}
+}
+
+@keyframes fadeIn{
+from{opacity:0}
+to{opacity:1}
+}
+
+@keyframes zoom{
+from{
+transform:scale(.9);
+opacity:0;
+}
+to{
+transform:scale(1);
+opacity:1;
+}
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="rain" id="rain"></div>
+
+<div class="navbar">
+
+<div class="logo">Sahra Cafe</div>
+
+<div class="nav-links">
+<a href="index.html">Home</a>
+<a href="drinks.html">Drinks</a>
+<a href="desserts.html">Desserts</a>
+<a href="hot-drinks.html">Hot Drinks</a>
+<a href="cold-drinks.html">Cold Drinks</a>
+</div>
+
+</div>
+
+<div class="header">
+
+<h1>Our Desserts</h1>
+
+<p>Indulge in our sweet treats and pastries</p>
+
+</div>
+
+<div class="menu-container">
+
+<div class="menu-item" onclick="openPopup(this)">
+<img src="https://images.unsplash.com/photo-1601050691683-7a5402c6a5a1">
+<h3>Chocolate Cake</h3>
+<p>Rich and moist chocolate layered cake.</p>
+<span class="price">$6</span>
+<button onclick="addToCart(event,'Chocolate Cake',6)">Add to Cart</button>
+</div>
+
+<div class="menu-item" onclick="openPopup(this)">
+<img src="https://images.unsplash.com/photo-1565958011700-44d14e8a4fa4">
+<h3>Cheesecake</h3>
+<p>Creamy New York style cheesecake.</p>
+<span class="price">$5</span>
+<button onclick="addToCart(event,'Cheesecake',5)">Add to Cart</button>
+</div>
+
+<div class="menu-item" onclick="openPopup(this)">
+<img src="https://images.unsplash.com/photo-1559628233-414c03f417b2">
+<h3>Macarons</h3>
+<p>Colorful almond meringue cookies with filling.</p>
+<span class="price">$4</span>
+<button onclick="addToCart(event,'Macarons',4)">Add to Cart</button>
+</div>
+
+<div class="menu-item" onclick="openPopup(this)">
+<img src="https://images.unsplash.com/photo-1589308078055-97f7b41d7ee9">
+<h3>Fruit Tart</h3>
+<p>Fresh fruits on a delicate pastry base.</p>
+<span class="price">$5</span>
+<button onclick="addToCart(event,'Fruit Tart',5)">Add to Cart</button>
+</div>
+
+<div class="menu-item" onclick="openPopup(this)">
+<img src="https://images.unsplash.com/photo-1604152135912-04aab9c89d41">
+<h3>Brownie</h3>
+<p>Fudgy chocolate brownie with nuts.</p>
+<span class="price">$4</span>
+<button onclick="addToCart(event,'Brownie',4)">Add to Cart</button>
+</div>
+
+<div class="menu-item" onclick="openPopup(this)">
+<img src="https://images.unsplash.com/photo-1562440499-64ff6f3f6a4f">
+<h3>Ice Cream Sundae</h3>
+<p>Vanilla ice cream with chocolate and cherry topping.</p>
+<span class="price">$5</span>
+<button onclick="addToCart(event,'Ice Cream Sundae',5)">Add to Cart</button>
+</div>
+<div class="menu-item" onclick="openPopup(this)">
+<img src="https://images.unsplash.com/photo-1601050691683-7a5402c6a5a1">
+<h3>Chocolate Cake</h3>
+<p>Rich and moist chocolate layered cake.</p>
+<span class="price">$6</span>
+<button onclick="addToCart(event,'Chocolate Cake',6)">Add to Cart</button>
+</div>
+
+<div class="menu-item" onclick="openPopup(this)">
+<img src="https://images.unsplash.com/photo-1565958011700-44d14e8a4fa4">
+<h3>Cheesecake</h3>
+<p>Creamy New York style cheesecake.</p>
+<span class="price">$5</span>
+<button onclick="addToCart(event,'Cheesecake',5)">Add to Cart</button>
+</div>
+
+<div class="menu-item" onclick="openPopup(this)">
+<img src="https://images.unsplash.com/photo-1559628233-414c03f417b2">
+<h3>Macarons</h3>
+<p>Colorful almond meringue cookies with filling.</p>
+<span class="price">$4</span>
+<button onclick="addToCart(event,'Macarons',4)">Add to Cart</button>
+</div>
+
+<div class="menu-item" onclick="openPopup(this)">
+<img src="https://images.unsplash.com/photo-1589308078055-97f7b41d7ee9">
+<h3>Fruit Tart</h3>
+<p>Fresh fruits on a delicate pastry base.</p>
+<span class="price">$5</span>
+<button onclick="addToCart(event,'Fruit Tart',5)">Add to Cart</button>
+</div>
+
+<div class="menu-item" onclick="openPopup(this)">
+<img src="https://images.unsplash.com/photo-1604152135912-04aab9c89d41">
+<h3>Brownie</h3>
+<p>Fudgy chocolate brownie with nuts.</p>
+<span class="price">$4</span>
+<button onclick="addToCart(event,'Brownie',4)">Add to Cart</button>
+</div>
+
+<div class="menu-item" onclick="openPopup(this)">
+<img src="https://images.unsplash.com/photo-1562440499-64ff6f3f6a4f">
+<h3>Ice Cream Sundae</h3>
+<p>Vanilla ice cream with chocolate and cherry topping.</p>
+<span class="price">$5</span>
+<button onclick="addToCart(event,'Ice Cream Sundae',5)">Add to Cart</button>
+</div>
+<div class="menu-item" onclick="openPopup(this)">
+<img src="https://images.unsplash.com/photo-1601050691683-7a5402c6a5a1">
+<h3>Chocolate Cake</h3>
+<p>Rich and moist chocolate layered cake.</p>
+<span class="price">$6</span>
+<button onclick="addToCart(event,'Chocolate Cake',6)">Add to Cart</button>
+</div>
+
+<div class="menu-item" onclick="openPopup(this)">
+<img src="https://images.unsplash.com/photo-1565958011700-44d14e8a4fa4">
+<h3>Cheesecake</h3>
+<p>Creamy New York style cheesecake.</p>
+<span class="price">$5</span>
+<button onclick="addToCart(event,'Cheesecake',5)">Add to Cart</button>
+</div>
+
+<div class="menu-item" onclick="openPopup(this)">
+<img src="https://images.unsplash.com/photo-1559628233-414c03f417b2">
+<h3>Macarons</h3>
+<p>Colorful almond meringue cookies with filling.</p>
+<span class="price">$4</span>
+<button onclick="addToCart(event,'Macarons',4)">Add to Cart</button>
+</div>
+
+<div class="menu-item" onclick="openPopup(this)">
+<img src="https://images.unsplash.com/photo-1589308078055-97f7b41d7ee9">
+<h3>Fruit Tart</h3>
+<p>Fresh fruits on a delicate pastry base.</p>
+<span class="price">$5</span>
+<button onclick="addToCart(event,'Fruit Tart',5)">Add to Cart</button>
+</div>
+
+<div class="menu-item" onclick="openPopup(this)">
+<img src="https://images.unsplash.com/photo-1604152135912-04aab9c89d41">
+<h3>Brownie</h3>
+<p>Fudgy chocolate brownie with nuts.</p>
+<span class="price">$4</span>
+<button onclick="addToCart(event,'Brownie',4)">Add to Cart</button>
+</div>
+
+<div class="menu-item" onclick="openPopup(this)">
+<img src="https://images.unsplash.com/photo-1562440499-64ff6f3f6a4f">
+<h3>Ice Cream Sundae</h3>
+<p>Vanilla ice cream with chocolate and cherry topping.</p>
+<span class="price">$5</span>
+<button onclick="addToCart(event,'Ice Cream Sundae',5)">Add to Cart</button>
+</div>
+<div class="menu-item" onclick="openPopup(this)">
+<img src="https://images.unsplash.com/photo-1601050691683-7a5402c6a5a1">
+<h3>Chocolate Cake</h3>
+<p>Rich and moist chocolate layered cake.</p>
+<span class="price">$6</span>
+<button onclick="addToCart(event,'Chocolate Cake',6)">Add to Cart</button>
+</div>
+
+<div class="menu-item" onclick="openPopup(this)">
+<img src="https://images.unsplash.com/photo-1565958011700-44d14e8a4fa4">
+<h3>Cheesecake</h3>
+<p>Creamy New York style cheesecake.</p>
+<span class="price">$5</span>
+<button onclick="addToCart(event,'Cheesecake',5)">Add to Cart</button>
+</div>
+
+<div class="menu-item" onclick="openPopup(this)">
+<img src="https://images.unsplash.com/photo-1559628233-414c03f417b2">
+<h3>Macarons</h3>
+<p>Colorful almond meringue cookies with filling.</p>
+<span class="price">$4</span>
+<button onclick="addToCart(event,'Macarons',4)">Add to Cart</button>
+</div>
+
+<div class="menu-item" onclick="openPopup(this)">
+<img src="https://images.unsplash.com/photo-1589308078055-97f7b41d7ee9">
+<h3>Fruit Tart</h3>
+<p>Fresh fruits on a delicate pastry base.</p>
+<span class="price">$5</span>
+<button onclick="addToCart(event,'Fruit Tart',5)">Add to Cart</button>
+</div>
+
+<div class="menu-item" onclick="openPopup(this)">
+<img src="https://images.unsplash.com/photo-1604152135912-04aab9c89d41">
+<h3>Brownie</h3>
+<p>Fudgy chocolate brownie with nuts.</p>
+<span class="price">$4</span>
+<button onclick="addToCart(event,'Brownie',4)">Add to Cart</button>
+</div>
+
+<div class="menu-item" onclick="openPopup(this)">
+<img src="https://images.unsplash.com/photo-1562440499-64ff6f3f6a4f">
+<h3>Ice Cream Sundae</h3>
+<p>Vanilla ice cream with chocolate and cherry topping.</p>
+<span class="price">$5</span>
+<button onclick="addToCart(event,'Ice Cream Sundae',5)">Add to Cart</button>
+</div>
+<div class="menu-item" onclick="openPopup(this)">
+<img src="https://images.unsplash.com/photo-1601050691683-7a5402c6a5a1">
+<h3>Chocolate Cake</h3>
+<p>Rich and moist chocolate layered cake.</p>
+<span class="price">$6</span>
+<button onclick="addToCart(event,'Chocolate Cake',6)">Add to Cart</button>
+</div>
+
+<div class="menu-item" onclick="openPopup(this)">
+<img src="https://images.unsplash.com/photo-1565958011700-44d14e8a4fa4">
+<h3>Cheesecake</h3>
+<p>Creamy New York style cheesecake.</p>
+<span class="price">$5</span>
+<button onclick="addToCart(event,'Cheesecake',5)">Add to Cart</button>
+</div>
+
+<div class="menu-item" onclick="openPopup(this)">
+<img src="https://images.unsplash.com/photo-1559628233-414c03f417b2">
+<h3>Macarons</h3>
+<p>Colorful almond meringue cookies with filling.</p>
+<span class="price">$4</span>
+<button onclick="addToCart(event,'Macarons',4)">Add to Cart</button>
+</div>
+
+<div class="menu-item" onclick="openPopup(this)">
+<img src="https://images.unsplash.com/photo-1589308078055-97f7b41d7ee9">
+<h3>Fruit Tart</h3>
+<p>Fresh fruits on a delicate pastry base.</p>
+<span class="price">$5</span>
+<button onclick="addToCart(event,'Fruit Tart',5)">Add to Cart</button>
+</div>
+
+<div class="menu-item" onclick="openPopup(this)">
+<img src="https://images.unsplash.com/photo-1604152135912-04aab9c89d41">
+<h3>Brownie</h3>
+<p>Fudgy chocolate brownie with nuts.</p>
+<span class="price">$4</span>
+<button onclick="addToCart(event,'Brownie',4)">Add to Cart</button>
+</div>
+
+<div class="menu-item" onclick="openPopup(this)">
+<img src="https://images.unsplash.com/photo-1562440499-64ff6f3f6a4f">
+<h3>Ice Cream Sundae</h3>
+<p>Vanilla ice cream with chocolate and cherry topping.</p>
+<span class="price">$5</span>
+<button onclick="addToCart(event,'Ice Cream Sundae',5)">Add to Cart</button>
+</div>
+<div class="menu-item" onclick="openPopup(this)">
+<img src="https://images.unsplash.com/photo-1601050691683-7a5402c6a5a1">
+<h3>Chocolate Cake</h3>
+<p>Rich and moist chocolate layered cake.</p>
+<span class="price">$6</span>
+<button onclick="addToCart(event,'Chocolate Cake',6)">Add to Cart</button>
+</div>
+
+<div class="menu-item" onclick="openPopup(this)">
+<img src="https://images.unsplash.com/photo-1565958011700-44d14e8a4fa4">
+<h3>Cheesecake</h3>
+<p>Creamy New York style cheesecake.</p>
+<span class="price">$5</span>
+<button onclick="addToCart(event,'Cheesecake',5)">Add to Cart</button>
+</div>
+
+<div class="menu-item" onclick="openPopup(this)">
+<img src="https://images.unsplash.com/photo-1559628233-414c03f417b2">
+<h3>Macarons</h3>
+<p>Colorful almond meringue cookies with filling.</p>
+<span class="price">$4</span>
+<button onclick="addToCart(event,'Macarons',4)">Add to Cart</button>
+</div>
+
+<div class="menu-item" onclick="openPopup(this)">
+<img src="https://images.unsplash.com/photo-1589308078055-97f7b41d7ee9">
+<h3>Fruit Tart</h3>
+<p>Fresh fruits on a delicate pastry base.</p>
+<span class="price">$5</span>
+<button onclick="addToCart(event,'Fruit Tart',5)">Add to Cart</button>
+</div>
+
+<div class="menu-item" onclick="openPopup(this)">
+<img src="https://images.unsplash.com/photo-1604152135912-04aab9c89d41">
+<h3>Brownie</h3>
+<p>Fudgy chocolate brownie with nuts.</p>
+<span class="price">$4</span>
+<button onclick="addToCart(event,'Brownie',4)">Add to Cart</button>
+</div>
+
+<div class="menu-item" onclick="openPopup(this)">
+<img src="https://images.unsplash.com/photo-1562440499-64ff6f3f6a4f">
+<h3>Ice Cream Sundae</h3>
+<p>Vanilla ice cream with chocolate and cherry topping.</p>
+<span class="price">$5</span>
+<button onclick="addToCart(event,'Ice Cream Sundae',5)">Add to Cart</button>
+</div>
+
+</div>
+
+<div id="popup" class="popup">
+
+<div class="popup-content">
+
+<span class="close" onclick="closePopup()">&times;</span>
+
+<img id="popup-img">
+
+<h3 id="popup-title"></h3>
+
+<p id="popup-desc"></p>
+
+<span id="popup-price"></span>
+
+</div>
+
+</div>
+
+<script>
+
+function openPopup(element){
+
+document.getElementById("popup").style.display="flex"
+
+document.getElementById("popup-img").src=element.querySelector("img").src
+
+document.getElementById("popup-title").innerText=element.querySelector("h3").innerText
+
+document.getElementById("popup-desc").innerText=element.querySelector("p").innerText
+
+document.getElementById("popup-price").innerText=element.querySelector(".price").innerText
+
+}
+
+function closePopup(){
+document.getElementById("popup").style.display="none"
+}
+
+function addToCart(event,name,price){
+event.stopPropagation()
+alert(name+" added to cart ($"+price+")")
+}
+
+const rainContainer=document.getElementById("rain")
+
+for(let i=0;i<120;i++){
+
+const drop=document.createElement("div")
+drop.classList.add("drop")
+
+drop.style.left=Math.random()*100+"%"
+drop.style.animationDuration=(0.5+Math.random()*0.7)+"s"
+drop.style.animationDelay=Math.random()*2+"s"
+
+rainContainer.appendChild(drop)
+
+}
+
+const items=document.querySelectorAll(".menu-item")
+
+const observer=new IntersectionObserver(entries=>{
+entries.forEach(entry=>{
+if(entry.isIntersecting){
+entry.target.classList.add("show")
+}
+})
+})
+
+items.forEach(el=>observer.observe(el))
+
+</script>
+
+</body>
+</html>
