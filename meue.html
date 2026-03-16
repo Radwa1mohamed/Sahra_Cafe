@@ -2,8 +2,16 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="logo.png" rel="icon" type="image/x-icon" />
+
+  <meta name="description" content="Sahra Cafe - Enjoy premium coffee and desserts in a cozy night atmosphere." />
+  <meta name="author" content="Radwa Mohmed" />
+  <meta name="keywords" content="cafe, coffee, desserts, drinks" />
+
+  <link rel="preconnect" href="https://images.unsplash.com">
+
     <title>Sahra Cafe Menu</title>
 
     <style>
@@ -328,9 +336,43 @@
                 <span class="price">$4</span>
                 <button onclick="addToCart(event,'Iced Latte',4)">Add to Cart</button>
             </div>
+            <div id="drinks" class="menu-item drink hot" onclick="openPopup(this)">
+                <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93">
+                <h3>Espresso</h3>
+                <p>Strong Italian coffee shot with bold aroma.</p>
+                <div class="tags"><span>Strong</span><span>Hot</span><span>Classic</span></div>
+                <span class="price">$3</span>
+                <button onclick="addToCart(event,'Espresso',3)">Add to Cart</button>
+            </div>
+
+            <div id="cold" class="menu-item drink cold" onclick="openPopup(this)">
+                <img src="https://images.unsplash.com/photo-1461023058943-07fcbe16d735">
+                <h3>Iced Latte</h3>
+                <p>Cold milk coffee served with ice cubes for refreshment.</p>
+                <div class="tags"><span>Cold</span><span>Milk</span></div>
+                <span class="price">$4</span>
+                <button onclick="addToCart(event,'Iced Latte',4)">Add to Cart</button>
+            </div>
 
             <!-- Desserts -->
 
+            <div id="desserts" class="menu-item dessert" onclick="openPopup(this)">
+                <img src="https://images.unsplash.com/photo-1563805042-7684c019e1cb">
+                <h3>Cheesecake</h3>
+                <p>Delicious strawberry cheesecake topped with fresh berries.</p>
+                <div class="tags"><span>Sweet</span><span>Dessert</span></div>
+                <span class="price">$5</span>
+                <button onclick="addToCart(event,'Cheesecake',5)">Add to Cart</button>
+            </div>
+
+            <div class="menu-item dessert" onclick="openPopup(this)">
+                <img src="https://images.unsplash.com/photo-1605475128023-4c0b55ad3c7d">
+                <h3>Chocolate Brownies</h3>
+                <p>Rich chocolate brownies served warm with ice cream.</p>
+                <div class="tags"><span>Chocolate</span><span>Dessert</span></div>
+                <span class="price">$4</span>
+                <button onclick="addToCart(event,'Brownies',4)">Add to Cart</button>
+            </div>
             <div id="desserts" class="menu-item dessert" onclick="openPopup(this)">
                 <img src="https://images.unsplash.com/photo-1563805042-7684c019e1cb">
                 <h3>Cheesecake</h3>
