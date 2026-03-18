@@ -320,6 +320,11 @@
   }
 }
 
+@media (max-width: 768px) {
+    .logo {
+        transition: opacity 0.3s;
+    }
+}
 
 
         /* Popup */
@@ -609,6 +614,28 @@
 </footer>
 
     <script>
+
+let prevScroll = window.pageYOffset;
+const navbar = document.querySelector(".navbar");
+
+window.addEventListener("scroll", () => {
+    let currentScroll = window.pageYOffset;
+
+    if (currentScroll > prevScroll && currentScroll > 50) {
+        // التمرير لأسفل → اخفاء الناف بار للأعلى
+        navbar.style.top = "-50px"; // يختفي للأعلى
+        navbar.style.transition = "top 0.3s";
+    } else {
+        // التمرير لأعلى → إظهار الناف بار
+        navbar.style.top = "0";
+        navbar.style.transition = "top 0.3s";
+    }
+
+    prevScroll = currentScroll;
+});
+
+
+
         /* Rain */
         const rainContainer = document.getElementById("rain");
         for (let i = 0; i < 40; i++) {

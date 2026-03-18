@@ -410,7 +410,11 @@ transform:scale(1);
 opacity:1;
 }
 }
-
+@media (max-width: 768px) {
+    .logo {
+        transition: opacity 0.3s;
+    }
+}
 
 
 </style>
@@ -685,6 +689,26 @@ opacity:1;
 </footer>
 
 <script>
+
+  let prevScroll = window.pageYOffset;
+const navbar = document.querySelector(".navbar");
+
+window.addEventListener("scroll", () => {
+    let currentScroll = window.pageYOffset;
+
+    if (currentScroll > prevScroll && currentScroll > 50) {
+        // التمرير لأسفل → اخفاء الناف بار للأعلى
+        navbar.style.top = "-50px"; // يختفي للأعلى
+        navbar.style.transition = "top 0.3s";
+    } else {
+        // التمرير لأعلى → إظهار الناف بار
+        navbar.style.top = "0";
+        navbar.style.transition = "top 0.3s";
+    }
+
+    prevScroll = currentScroll;
+});
+
 
 function openPopup(element){
 
