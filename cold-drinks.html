@@ -213,118 +213,121 @@
         }
 
         /* على الموبايل (أقل من 600px) */
-@media (max-width: 600px) {
-    .slide {
-        flex-wrap: wrap; /* السماح بالالتفاف للصف التالي */
-        justify-content: center;
-    }
+        @media (max-width: 600px) {
+            .slide {
+                flex-wrap: wrap;
+                /* السماح بالالتفاف للصف التالي */
+                justify-content: center;
+            }
 
-    .menu-item {
-        min-width: 50%; /* عرض كل عنصر حوالي نصف الشاشة */
-        max-width: 50%;
-        margin-bottom: 15px; /* مسافة بين الصفوف */
-    }
-}
+            .menu-item {
+                min-width: 50%;
+                /* عرض كل عنصر حوالي نصف الشاشة */
+                max-width: 50%;
+                margin-bottom: 15px;
+                /* مسافة بين الصفوف */
+            }
+        }
 
-/* التابلت */
-@media (max-width: 992px){
-  .navbar{
-    padding:15px 5%;
-  }
+        /* التابلت */
+        @media (max-width: 992px) {
+            .navbar {
+                padding: 15px 5%;
+            }
 
-  .menu-container{
-    padding:40px 5%;
-  }
-}
+            .menu-container {
+                padding: 40px 5%;
+            }
+        }
 
-/* الموبايل */
-@media (max-width: 768px){
+        /* الموبايل */
+        @media (max-width: 768px) {
 
-  .navbar{
-    flex-direction: column;
-    gap: 10px;
-    text-align: center;
-  }
+            .navbar {
+                flex-direction: column;
+                gap: 10px;
+                text-align: center;
+            }
 
-  .nav-links{
-    display:flex;
-    flex-wrap:wrap;
-    justify-content:center;
-    gap:10px;
-  }
+            .nav-links {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 10px;
+            }
 
-  .nav-links a{
-    margin:0;
-    font-size:14px;
-  }
+            .nav-links a {
+                margin: 0;
+                font-size: 14px;
+            }
 
-  #cartIcon{
-    margin-top:10px;
-  }
+            #cartIcon {
+                margin-top: 10px;
+            }
 
-  .header{
-    padding:40px 15px;
-  }
+            .header {
+                padding: 40px 15px;
+            }
 
-  .header h1{
-    font-size:26px;
-  }
+            .header h1 {
+                font-size: 26px;
+            }
 
-  .header p{
-    font-size:14px;
-  }
+            .header p {
+                font-size: 14px;
+            }
 
-  .filters{
-    flex-direction:column;
-    align-items:center;
-    gap:10px;
-    padding:0 15px;
-  }
+            .filters {
+                flex-direction: column;
+                align-items: center;
+                gap: 10px;
+                padding: 0 15px;
+            }
 
-  .filters input,
-  .filters select{
-    width:100%;
-    max-width:350px;
-  }
+            .filters input,
+            .filters select {
+                width: 100%;
+                max-width: 350px;
+            }
 
-  .menu-container{
-    grid-template-columns:1fr;
-    padding:30px 5%;
-  }
+            .menu-container {
+                grid-template-columns: 1fr;
+                padding: 30px 5%;
+            }
 
-  .menu-item img{
-    height:180px;
-  }
+            .menu-item img {
+                height: 180px;
+            }
 
-  .popup-content{
-    padding:20px;
-  }
+            .popup-content {
+                padding: 20px;
+            }
 
-  .popup-content img{
-    height:200px;
-  }
-}
+            .popup-content img {
+                height: 200px;
+            }
+        }
 
-/* شاشات صغيرة جدا */
-@media (max-width: 480px){
-  .header h1{
-    font-size:22px;
-  }
+        /* شاشات صغيرة جدا */
+        @media (max-width: 480px) {
+            .header h1 {
+                font-size: 22px;
+            }
 
-  .menu-item h3{
-    font-size:18px;
-  }
+            .menu-item h3 {
+                font-size: 18px;
+            }
 
-  .menu-item p{
-    font-size:13px;
-  }
-}
+            .menu-item p {
+                font-size: 13px;
+            }
+        }
 
-@media (max-width: 768px) {
-    .logo {
-        transition: opacity 0.3s;
-    }
-}
+        @media (max-width: 768px) {
+            .logo {
+                transition: opacity 0.3s;
+            }
+        }
 
 
         /* Popup */
@@ -477,13 +480,13 @@
     </div>
 
     <div class="header">
-        <h1>Our Desserts</h1>
-        <p>Delicious cakes and sweets in slides</p>
+        <h1>Our cold-drinks</h1>
+        <p>Delicious cold drinks in slides</p>
     </div>
 
     <!-- Filters -->
     <div class="filters">
-        <input type="text" id="searchInput" placeholder="Search dessert...">
+        <input type="text" id="searchInput" placeholder="Search cold drink...">
         <select id="typeFilter">
             <option value="all">All</option>
             <option value="cake">Cake</option>
@@ -505,25 +508,25 @@
             <!-- Slide 1: Cakes -->
             <div class="slide">
                 <div class="menu-item" data-type="cake" data-price="5" onclick="openPopup(this)">
-                    <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=500">
+                    <img src="cold-drinks5.jpg">
                     <h3>Chocolate Cake</h3>
                     <p>Rich chocolate cake.</p><span class="price">$5</span><button
                         onclick="addToCart(event,'Chocolate Cake',5)">Add to Cart</button>
                 </div>
                 <div class="menu-item" data-type="cake" data-price="6" onclick="openPopup(this)">
-                    <img src="https://images.unsplash.com/photo-1551024506-0bccd828d307?auto=format&fit=crop&w=500">
+                    <img src="cold-drinks6.jpg">
                     <h3>Strawberry Cake</h3>
                     <p>Soft cake with strawberries.</p><span class="price">$6</span><button
                         onclick="addToCart(event,'Strawberry Cake',6)">Add to Cart</button>
                 </div>
                 <div class="menu-item" data-type="cake" data-price="7" onclick="openPopup(this)">
-                    <img src="https://images.unsplash.com/photo-1617196030086-52a575d4abf1?auto=format&fit=crop&w=500">
+                    <img src="cold-drinks7.jpg">
                     <h3>Black Forest Cake</h3>
                     <p>Delicious cherry and chocolate layers.</p><span class="price">$7</span><button
                         onclick="addToCart(event,'Black Forest Cake',7)">Add to Cart</button>
                 </div>
                 <div class="menu-item" data-type="cake" data-price="6.5" onclick="openPopup(this)">
-                    <img src="https://images.unsplash.com/photo-1625030351321-038cb6f22de7?auto=format&fit=crop&w=500">
+                    <img src="cold-drinks8.jpg">
                     <h3>Vanilla Cake</h3>
                     <p>Classic vanilla sponge cake.</p><span class="price">$6.5</span><button
                         onclick="addToCart(event,'Vanilla Cake',6.5)">Add to Cart</button>
@@ -533,25 +536,25 @@
             <!-- Slide 2: Ice Cream -->
             <div class="slide">
                 <div class="menu-item" data-type="ice" data-price="4" onclick="openPopup(this)">
-                    <img src="https://images.unsplash.com/photo-1563805042-7684c019e1cb?auto=format&fit=crop&w=500">
+                    <img src="cold-drinks10.jpg">
                     <h3>Vanilla Ice Cream</h3>
                     <p>Classic vanilla scoop.</p><span class="price">$4</span><button
                         onclick="addToCart(event,'Vanilla Ice Cream',4)">Add to Cart</button>
                 </div>
                 <div class="menu-item" data-type="ice" data-price="5" onclick="openPopup(this)">
-                    <img src="https://images.unsplash.com/photo-1570197788417-0e82375c9371?auto=format&fit=crop&w=500">
+                    <img src="cold-drinks9.jpg">
                     <h3>Chocolate Ice Cream</h3>
                     <p>Creamy chocolate ice cream.</p><span class="price">$5</span><button
                         onclick="addToCart(event,'Chocolate Ice Cream',5)">Add to Cart</button>
                 </div>
                 <div class="menu-item" data-type="ice" data-price="5.5" onclick="openPopup(this)">
-                    <img src="https://images.unsplash.com/photo-1599785209793-682d3a9c9d26?auto=format&fit=crop&w=500">
+                    <img src="cold-drinks13.jpg">
                     <h3>Strawberry Ice Cream</h3>
                     <p>Fresh strawberry scoop.</p><span class="price">$5.5</span><button
                         onclick="addToCart(event,'Strawberry Ice Cream',5.5)">Add to Cart</button>
                 </div>
                 <div class="menu-item" data-type="ice" data-price="6" onclick="openPopup(this)">
-                    <img src="https://images.unsplash.com/photo-1599785209793-682d3a9c9d26?auto=format&fit=crop&w=500">
+                    <img src="cold-drinks12.jpg">
                     <h3>Mango Ice Cream</h3>
                     <p>Tropical mango flavor.</p><span class="price">$6</span><button
                         onclick="addToCart(event,'Mango Ice Cream',6)">Add to Cart</button>
@@ -561,25 +564,25 @@
             <!-- Slide 3: Sweets -->
             <div class="slide">
                 <div class="menu-item" data-type="sweet" data-price="4" onclick="openPopup(this)">
-                    <img src="https://images.unsplash.com/photo-1606312619070-d48b4c652a52?auto=format&fit=crop&w=500">
+                    <img src="cold-drinks15.jpg">
                     <h3>Donuts</h3>
                     <p>Fresh donuts with sugar glaze.</p><span class="price">$4</span><button
                         onclick="addToCart(event,'Donuts',4)">Add to Cart</button>
                 </div>
                 <div class="menu-item" data-type="sweet" data-price="5" onclick="openPopup(this)">
-                    <img src="https://images.unsplash.com/photo-1505253213348-cd54c92b37d0?auto=format&fit=crop&w=500">
-                    <h3>Cheesecake</h3>
-                    <p>Classic creamy cheesecake.</p><span class="price">$5</span><button
-                        onclick="addToCart(event,'Cheesecake',5)">Add to Cart</button>
+                    <img src="cold-drinks14.jpg">
+                    <h3>Juice Recipes</h3>
+                    <p>Refreshing fruit juice blends.</p><span class="price">$5</span><button
+                        onclick="addToCart(event,'Juice Recipes',5)">Add to Cart</button>
                 </div>
                 <div class="menu-item" data-type="sweet" data-price="5.5" onclick="openPopup(this)">
-                    <img src="https://images.unsplash.com/photo-1599785209793-682d3a9c9d26?auto=format&fit=crop&w=500">
+                    <img src="cold-drinks16.jpg">
                     <h3>Macarons</h3>
                     <p>Colorful French macarons.</p><span class="price">$5.5</span><button
                         onclick="addToCart(event,'Macarons',5.5)">Add to Cart</button>
                 </div>
                 <div class="menu-item" data-type="sweet" data-price="6" onclick="openPopup(this)">
-                    <img src="https://images.unsplash.com/photo-1599785209793-682d3a9c9d26?auto=format&fit=crop&w=500">
+                    <img src="cold-drinks18.jpg">
                     <h3>Chocolate Truffle</h3>
                     <p>Rich chocolate truffles.</p><span class="price">$6</span><button
                         onclick="addToCart(event,'Chocolate Truffle',6)">Add to Cart</button>
@@ -601,38 +604,42 @@
         </div>
     </div>
 
-     <footer>
-    <p>© 2026 Sahra Cafe - All Rights Reserved</p>
-   
 
-    <p style="margin-top: 10px; font-size: 14px; color: #777;">
-    Developed by 
-    <a href="https://wa.me/201007359722" target="_blank" style="text-decoration: none; color: #d4a762; font-weight: bold; transition: 0.3s;">
-        Eng. Radwa Mohmed
-    </a>
-</p>
-</footer>
+
+
+    <footer>
+        <p>© 2026 Sahra Cafe - All Rights Reserved</p>
+
+
+        <p style="margin-top: 10px; font-size: 14px; color: #777;">
+            Developed by
+            <a href="https://wa.me/201007359722" target="_blank"
+                style="text-decoration: none; color: #d4a762; font-weight: bold; transition: 0.3s;">
+                Eng. Radwa Mohmed
+            </a>
+        </p>
+    </footer>
 
     <script>
 
-let prevScroll = window.pageYOffset;
-const navbar = document.querySelector(".navbar");
+        let prevScroll = window.pageYOffset;
+        const navbar = document.querySelector(".navbar");
 
-window.addEventListener("scroll", () => {
-    let currentScroll = window.pageYOffset;
+        window.addEventListener("scroll", () => {
+            let currentScroll = window.pageYOffset;
 
-    if (currentScroll > prevScroll && currentScroll > 50) {
-        // التمرير لأسفل → اخفاء الناف بار للأعلى
-        navbar.style.top = "-50px"; // يختفي للأعلى
-        navbar.style.transition = "top 0.3s";
-    } else {
-        // التمرير لأعلى → إظهار الناف بار
-        navbar.style.top = "0";
-        navbar.style.transition = "top 0.3s";
-    }
+            if (currentScroll > prevScroll && currentScroll > 50) {
+                // التمرير لأسفل → اخفاء الناف بار للأعلى
+                navbar.style.top = "-50px"; // يختفي للأعلى
+                navbar.style.transition = "top 0.3s";
+            } else {
+                // التمرير لأعلى → إظهار الناف بار
+                navbar.style.top = "0";
+                navbar.style.transition = "top 0.3s";
+            }
 
-    prevScroll = currentScroll;
-});
+            prevScroll = currentScroll;
+        });
 
 
 

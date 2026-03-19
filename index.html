@@ -137,13 +137,16 @@
       padding: 80px 10%;
       text-align: center;
     }
+
     /* تقليل المسافة بين About و Team */
     #about {
-      padding-bottom: 20px; /* تقليل المسافة من أسفل قسم الأباوت */
+      padding-bottom: 20px;
+      /* تقليل المسافة من أسفل قسم الأباوت */
     }
 
     .team-section {
-      padding-top: 20px;    /* تقليل المسافة من أعلى قسم التيم */
+      padding-top: 20px;
+      /* تقليل المسافة من أعلى قسم التيم */
     }
 
 
@@ -316,53 +319,54 @@
       color: #ccc;
       animation: fadeUp 1s;
     }
-    .about-parallax{
+
+    .about-parallax {
       margin-bottom: 10px;
-}
+    }
 
-  /* TEAM */
+    /* TEAM */
 
-.team-container{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-gap:30px;
-}
+    .team-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 30px;
+    }
 
-.team-card{
-background:#1c1c1c;
-border-radius:15px;
-padding:30px 20px;
-transition:.4s;
-}
+    .team-card {
+      background: #1c1c1c;
+      border-radius: 15px;
+      padding: 30px 20px;
+      transition: .4s;
+    }
 
-.team-card:hover{
-transform:translateY(-10px);
-box-shadow:0 12px 30px rgba(0,0,0,.6);
-}
+    .team-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 12px 30px rgba(0, 0, 0, .6);
+    }
 
-.team-card img{
-width:150px;
-height:150px;
-border-radius:50%;
-object-fit:cover;
-margin:auto;
-display:block;
-border:4px solid #d4a762;
-margin-bottom:15px;
-}
+    .team-card img {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin: auto;
+      display: block;
+      border: 4px solid #d4a762;
+      margin-bottom: 15px;
+    }
 
-.team-info h3{
-color:#d4a762;
-margin-bottom:5px;
-}
+    .team-info h3 {
+      color: #d4a762;
+      margin-bottom: 5px;
+    }
 
-.team-info p{
-color:#ccc;
-font-size:14px;
-margin-bottom:10px;
-}
+    .team-info p {
+      color: #ccc;
+      font-size: 14px;
+      margin-bottom: 10px;
+    }
 
-    
+
     /* FOOTER */
 
     footer {
@@ -410,26 +414,26 @@ margin-bottom:10px;
       transform: translateY(0);
     }
 
-.about-card{
-max-width:750px;
-margin:auto;
-padding:40px 35px;
-background:#1c1c1c;
-border-radius:15px;
-line-height:1.9;
-font-size:17px;
-color:#ccc;
-box-shadow:0 10px 35px rgba(0,0,0,.6);
-border:1px solid rgba(212,167,98,.2);
-transition:.4s;
-}
+    .about-card {
+      max-width: 750px;
+      margin: auto;
+      padding: 40px 35px;
+      background: #1c1c1c;
+      border-radius: 15px;
+      line-height: 1.9;
+      font-size: 17px;
+      color: #ccc;
+      box-shadow: 0 10px 35px rgba(0, 0, 0, .6);
+      border: 1px solid rgba(212, 167, 98, .2);
+      transition: .4s;
+    }
 
-.about-card:hover{
-transform:translateY(-6px);
-box-shadow:0 15px 40px rgba(0,0,0,.8);
-}
+    .about-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 15px 40px rgba(0, 0, 0, .8);
+    }
 
-/* REVIEWS SECTION */
+    /* REVIEWS SECTION */
     .reviews-container {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -484,25 +488,35 @@ box-shadow:0 15px 40px rgba(0,0,0,.8);
     }
 
 
-/* RESPONSIVE DESIGN (Media Queries) */
+    /* RESPONSIVE DESIGN (Media Queries) */
 
     /* للشاشات المتوسطة (التابلت) */
     @media (max-width: 992px) {
-      .hero h1 { font-size: 50px; }
-      nav { padding: 20px 5%; }
-      section { padding: 60px 5%; }
+      .hero h1 {
+        font-size: 50px;
+      }
+
+      nav {
+        padding: 20px 5%;
+      }
+
+      section {
+        padding: 60px 5%;
+      }
     }
 
     /* للشاشات الصغيرة (الموبايل) */
     @media (max-width: 768px) {
       nav {
-        flex-direction: column; /* شعار الكافيه فوق والقائمة تحته */
+        flex-direction: column;
+        /* شعار الكافيه فوق والقائمة تحته */
         gap: 15px;
       }
 
       nav ul {
         gap: 15px;
-        flex-wrap: wrap; /* عشان اللينكات تنزل تحت بعض لو الشاشة ضيقة جداً */
+        flex-wrap: wrap;
+        /* عشان اللينكات تنزل تحت بعض لو الشاشة ضيقة جداً */
         justify-content: center;
       }
 
@@ -515,7 +529,8 @@ box-shadow:0 15px 40px rgba(0,0,0,.8);
       }
 
       .hero-buttons {
-        flex-direction: column; /* الأزرار فوق بعض في الموبايل */
+        flex-direction: column;
+        /* الأزرار فوق بعض في الموبايل */
         gap: 10px;
       }
 
@@ -537,15 +552,16 @@ box-shadow:0 15px 40px rgba(0,0,0,.8);
     /* تعديل الصور في الجاليري عشان تملأ الشاشة في الموبايل */
     @media (max-width: 480px) {
       .gallery {
-        grid-template-columns: 1fr; /* صورة واحدة في كل صف */
+        grid-template-columns: 1fr;
+        /* صورة واحدة في كل صف */
       }
-      
+
       .menu-container {
-        grid-template-columns: 1fr; /* صنف واحد في كل صف */
+        grid-template-columns: 1fr;
+        /* صنف واحد في كل صف */
       }
     }
 
-    
     /* CONTACT SECTION - PREMIUM RE-DESIGN */
 
     #contact {
@@ -558,58 +574,64 @@ box-shadow:0 15px 40px rgba(0,0,0,.8);
       gap: 40px;
       margin-bottom: 50px;
     }
-    /* تنسيق عام يضمن توافق الأبعاد في كل المتصفحات */
-.contact-info, .contact-form, .feedback-box {
-    width: 100% !important;
-    box-sizing: border-box; /* لضمان عدم خروج العناصر عن الكارت */
-    background: #1c1c1c;
-    padding: 30px;
-    border-radius: 20px;
-    border: 1px solid rgba(212, 167, 98, 0.1);
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-}
 
-     .contact-info h3, .contact-form h3, .feedback-box h3 {
-        color: #d4a762;
-        margin-bottom: 25px;
-        font-size: 22px;
-        border-bottom: 1px solid rgba(212, 167, 98, 0.2);
-        padding-bottom: 10px;
-        display: inline-block;
+    /* تنسيق عام يضمن توافق الأبعاد في كل المتصفحات */
+    .contact-info,
+    .contact-form,
+    .feedback-box {
+      width: 100% !important;
+      box-sizing: border-box;
+      /* لضمان عدم خروج العناصر عن الكارت */
+      background: #1c1c1c;
+      padding: 30px;
+      border-radius: 20px;
+      border: 1px solid rgba(212, 167, 98, 0.1);
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    .contact-info h3,
+    .contact-form h3,
+    .feedback-box h3 {
+      color: #d4a762;
+      margin-bottom: 25px;
+      font-size: 22px;
+      border-bottom: 1px solid rgba(212, 167, 98, 0.2);
+      padding-bottom: 10px;
+      display: inline-block;
     }
 
     .info-item {
-        margin-bottom: 20px;
-        font-size: 16px;
-        display: flex;
-        align-items: center;
-        gap: 12px;
+      margin-bottom: 20px;
+      font-size: 16px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
     }
 
     /* تنسيق أزرار السوشيال ميديا الجديد */
     .social-pills {
-        display: flex;
-        gap: 12px;
-        flex-wrap: wrap;
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
     }
 
     .social-pill {
-        padding: 8px 15px;
-        background: #111;
-        border: 1px solid #333;
-        border-radius: 50px;
-        color: #ccc;
-        text-decoration: none;
-        font-size: 13px;
-        transition: 0.3s;
+      padding: 8px 15px;
+      background: #111;
+      border: 1px solid #333;
+      border-radius: 50px;
+      color: #ccc;
+      text-decoration: none;
+      font-size: 13px;
+      transition: 0.3s;
     }
 
     .social-pill:hover {
-        border-color: #d4a762;
-        color: #d4a762;
-        transform: translateY(-3px);
+      border-color: #d4a762;
+      color: #d4a762;
+      transform: translateY(-3px);
     }
 
 
@@ -635,27 +657,28 @@ box-shadow:0 15px 40px rgba(0,0,0,.8);
     }
 
     /* تنسيق أزرار السوشيال ميديا لتعمل بشكل انسيابي */
-.social-pills {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-}
+    .social-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
 
-.social-pill {
-    flex: 1; /* تجعل الأزرار تتوزع بالتساوي في المساحة المتاحة */
-    min-width: 100px;
-    text-align: center;
-    padding: 10px;
-    background: #111;
-    border: 1px solid #333;
-    border-radius: 50px;
-    color: #ccc;
-    text-decoration: none;
-    font-size: 13px;
-    transition: 0.3s;
-}
+    .social-pill {
+      flex: 1;
+      /* تجعل الأزرار تتوزع بالتساوي في المساحة المتاحة */
+      min-width: 100px;
+      text-align: center;
+      padding: 10px;
+      background: #111;
+      border: 1px solid #333;
+      border-radius: 50px;
+      color: #ccc;
+      text-decoration: none;
+      font-size: 13px;
+      transition: 0.3s;
+    }
 
-  
+
 
     .feedback-box {
       grid-column: 1 / -1;
@@ -667,7 +690,8 @@ box-shadow:0 15px 40px rgba(0,0,0,.8);
     .form-group textarea,
     .rating-select {
       width: 100%;
-      box-sizing: border-box; /* Ensures width includes padding */
+      box-sizing: border-box;
+      /* Ensures width includes padding */
       padding: 12px 15px;
       background: #111 !important;
       border: 1px solid #333;
@@ -680,14 +704,16 @@ box-shadow:0 15px 40px rgba(0,0,0,.8);
 
     .btn-send {
       width: 76%;
-      box-sizing: border-box; /* Critical: Prevents overflow */
+      box-sizing: border-box;
+      /* Critical: Prevents overflow */
       padding: 12px 20px;
       background: linear-gradient(135deg, #d4a762, #b89250);
       border: none;
       border-radius: 8px;
       color: #000;
       font-weight: bold;
-      font-size: 14px; /* Balanced font size */
+      font-size: 14px;
+      /* Balanced font size */
       cursor: pointer;
       transition: all 0.3s ease;
       display: block;
@@ -716,94 +742,96 @@ box-shadow:0 15px 40px rgba(0,0,0,.8);
     }
 
 
-/* حل مشكلة الركنة في الموبايل */
-@media (max-width: 768px) {
-    .contact-wrapper {
+    /* حل مشكلة الركنة في الموبايل */
+    @media (max-width: 768px) {
+      .contact-wrapper {
         display: flex;
         flex-direction: column;
         gap: 20px;
-    }
+      }
 
-    .contact-info {
-        text-align: center; /* توسيط النص للموبايل يعطي مظهر بريميوم */
+      .contact-info {
+        text-align: center;
+        /* توسيط النص للموبايل يعطي مظهر بريميوم */
         align-items: center;
-    }
+      }
 
-    .info-item {
+      .info-item {
         width: 100%;
-        justify-content: center; /* لتوسيط الأيقونة مع النص */
+        justify-content: center;
+        /* لتوسيط الأيقونة مع النص */
         font-size: 15px;
-    }
+      }
 
-    .social-pills {
-        justify-content: center; /* لتوسيط أزرار السوشيال ميديا */
+      .social-pills {
+        justify-content: center;
+        /* لتوسيط أزرار السوشيال ميديا */
         width: 100%;
+      }
     }
-}
 
 
-  /* تنسيق أيقونة الواتساب */
-.whatsapp-container {
-    position: fixed;
-    bottom: 25px;
-    right: 25px;
-    display: flex;
-    align-items: center;
-    z-index: 2000;
-}
+    /* تنسيق أيقونة الواتساب */
+    .whatsapp-container {
+      position: fixed;
+      bottom: 25px;
+      right: 25px;
+      display: flex;
+      align-items: center;
+      z-index: 2000;
+    }
 
-.whatsapp-link {
-    background: #25D366;
-    color: white;
-    width: 55px;
-    height: 55px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 24px;
-    text-decoration: none;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-    transition: 0.3s;
-}
+    .whatsapp-link {
+      background: #25D366;
+      color: white;
+      width: 55px;
+      height: 55px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+      text-decoration: none;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+      transition: 0.3s;
+    }
 
-/* جملة الترحيب (تكون مخفية في البداية) */
-.whatsapp-msg {
-    background: white;
-    color: #333;
-    padding: 8px 15px;
-    border-radius: 8px;
-    margin-right: 15px;
-    font-size: 14px;
-    font-weight: bold;
-    opacity: 0;
-    transform: translateX(20px);
-    transition: 0.3s;
-    pointer-events: none;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-    white-space: nowrap;
-}
+    /* جملة الترحيب (تكون مخفية في البداية) */
+    .whatsapp-msg {
+      background: white;
+      color: #333;
+      padding: 8px 15px;
+      border-radius: 8px;
+      margin-right: 15px;
+      font-size: 14px;
+      font-weight: bold;
+      opacity: 0;
+      transform: translateX(20px);
+      transition: 0.3s;
+      pointer-events: none;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      white-space: nowrap;
+    }
 
-/* حركة الـ Hover: إظهار الجملة عند لمس الأيقونة */
-.whatsapp-container:hover .whatsapp-msg {
-    opacity: 1;
-    transform: translateX(0);
-}
+    /* حركة الـ Hover: إظهار الجملة عند لمس الأيقونة */
+    .whatsapp-container:hover .whatsapp-msg {
+      opacity: 1;
+      transform: translateX(0);
+    }
 
-.whatsapp-link:hover {
-    transform: scale(1.1);
-}
+    .whatsapp-link:hover {
+      transform: scale(1.1);
+    }
 
-footer a:hover {
-    text-shadow: 0 0 10px rgba(212, 167, 98, 0.5); /* إضاءة ذهبية خفيفة حول اسمك */
-    text-decoration: underline; /* خط تحت الاسم عند الوقوف عليه */
-}
-
-
-   
+    footer a:hover {
+      text-shadow: 0 0 10px rgba(212, 167, 98, 0.5);
+      /* إضاءة ذهبية خفيفة حول اسمك */
+      text-decoration: underline;
+      /* خط تحت الاسم عند الوقوف عليه */
+    }
   </style>
 
-  
+
 </head>
 
 <body>
@@ -834,7 +862,7 @@ footer a:hover {
 
       <div class="hero-buttons">
 
-        <a href="menu.html">View Menu</a>
+        <a href="meue.html">View Menu</a>
         <a href="#reviews" class="btn-outline">Reserve Now</a>
 
       </div>
@@ -907,60 +935,57 @@ footer a:hover {
       <div class="gallery-item"><img src="s5.jpg">
         <div class="caption">Cafe</div>
       </div>
-      <div class="gallery-item"><img src="s6.jpg">
+      <div class="gallery-item"><img src="s8.jpg">
         <div class="caption">Coffee</div>
       </div>
-      <div class="gallery-item"><img src="s4.jpg">
+      <div class="gallery-item"><img src="s6.jpg">
         <div class="caption">Night Atmosphere</div>
       </div>
-      <div class="gallery-item"><img src="s5.jpg">
+      <div class="gallery-item"><img src="s7.jpg">
         <div class="caption">Cafe</div>
       </div>
-      
+
 
     </div>
 
   </section>
 
 
-<section id="about" class="animate">
+  <section id="about" class="animate">
 
-<h2>About Sahra</h2>
+    <h2>About Sahra</h2>
 
-<div class="about-card">
+    <div class="about-card">
 
-<p>
+      <p>
 
-Sahra Cafe is a cozy place designed for coffee lovers and night vibes.
-Enjoy premium coffee, delicious desserts, and a relaxing atmosphere
-perfect for friends and evening gatherings.
+        Sahra Cafe is a cozy place designed for coffee lovers and night vibes.
+        Enjoy premium coffee, delicious desserts, and a relaxing atmosphere
+        perfect for friends and evening gatherings.
 
-</p>
+      </p>
 
-</div>
+    </div>
 
-</section>
+  </section>
 
-<!-- TEAM -->
+  <!-- TEAM -->
   <section class="team-section animate">
     <h2>Our Team</h2>
     <div class="team-container">
-      <div class="team-card"> <img loading="lazy"
-          src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400">
+      <div class="team-card"> <img loading="lazy" src="Ahmedjpg.jpg">
         <div class="team-info">
           <h3>Ahmed Hassan</h3>
           <p>Head Barista</p>
         </div>
       </div>
-      <div class="team-card"> <img loading="lazy"
-          src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400">
+      <div class="team-card"> <img loading="lazy" src="ساره.jfif">
         <div class="team-info">
           <h3>Sarah Ali</h3>
           <p>Pastry Chef</p>
         </div>
       </div>
-      <div class="team-card"> <img loading="lazy"
-          src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=400">
+      <div class="team-card"> <img loading="lazy" src="Mohamed.jpg">
         <div class="team-info">
           <h3>Mohamed Adel</h3>
           <p>Manager</p>
@@ -969,14 +994,15 @@ perfect for friends and evening gatherings.
     </div>
   </section>
 
-   <section id="reviews" class="animate">
+  <section id="reviews" class="animate">
     <h2>What Our Guests Say</h2>
-    
+
     <div class="reviews-container">
-      
+
       <div class="review-card">
         <div class="stars">★★★★★</div>
-        <p class="review-text">"Best atmosphere in Cairo! The coffee is authentic and the staff is very professional. Highly recommended for night vibes."</p>
+        <p class="review-text">"Best atmosphere in Cairo! The coffee is authentic and the staff is very professional.
+          Highly recommended for night vibes."</p>
         <div class="reviewer-info">
           <img src="https://i.pravatar.cc/150?u=1" alt="Guest">
           <h4>Ahmed Rayan</h4>
@@ -985,7 +1011,8 @@ perfect for friends and evening gatherings.
 
       <div class="review-card">
         <div class="stars">★★★★★</div>
-        <p class="review-text">"The desserts are out of this world! Especially the Molten Cake. A perfect place to study or hang out with friends."</p>
+        <p class="review-text">"The desserts are out of this world! Especially the Molten Cake. A perfect place to study
+          or hang out with friends."</p>
         <div class="reviewer-info">
           <img src="https://i.pravatar.cc/150?u=2" alt="Guest">
           <h4>Laila Khaled</h4>
@@ -994,7 +1021,8 @@ perfect for friends and evening gatherings.
 
       <div class="review-card">
         <div class="stars">★★★★☆</div>
-        <p class="review-text">"I love the music and the lighting here. The Espresso is 10/10. I just wish they had more outdoor seating."</p>
+        <p class="review-text">"I love the music and the lighting here. The Espresso is 10/10. I just wish they had more
+          outdoor seating."</p>
         <div class="reviewer-info">
           <img src="https://i.pravatar.cc/150?u=5" alt="Guest">
           <h4>Omar Ibraheem</h4>
@@ -1006,76 +1034,78 @@ perfect for friends and evening gatherings.
 
 
 
- <section id="contact" class="animate">
+  <section id="contact" class="animate">
     <h2>Connect With Us</h2>
-    
+
     <div class="contact-wrapper">
-        <div class="contact-info">
-            <h3>Direct Contact</h3>
-            <div class="info-item"><span>📍</span> Maadi, Cairo, Egypt</div>
-            <div class="info-item"><span>📞</span> +20 100 000 0000</div>
-            <div class="info-item"><span>✉️</span> info@sahracafe.com</div>
-            
-            <h3 style="margin-top: 20px;">Follow Us</h3>
-            <div class="social-pills">
-                <a href="#" class="social-pill">Facebook</a>
-                <a href="#" class="social-pill">Instagram</a>
-                <a href="#" class="social-pill">TikTok</a>
-            </div>
-        </div>
+      <div class="contact-info">
+        <h3>Direct Contact</h3>
+        <div class="info-item"><span>📍</span> Maadi, Cairo, Egypt</div>
+        <div class="info-item"><span>📞</span> +20 100 000 0000</div>
+        <div class="info-item"><span>✉️</span> info@sahracafe.com</div>
 
-        <div class="contact-form">
-            <h3>Send a Message</h3>
-            <form>
-                <div class="form-group"><input type="text" placeholder="Your Name"></div>
-                <div class="form-group"><input type="email" placeholder="Email Address"></div>
-                <div class="form-group"><textarea rows="2" placeholder="How can we help?"></textarea></div>
-                <button type="submit" class="btn-send">Send Inquiry</button>
-            </form>
+        <h3 style="margin-top: 20px;">Follow Us</h3>
+        <div class="social-pills">
+          <a href="#" class="social-pill">Facebook</a>
+          <a href="#" class="social-pill">Instagram</a>
+          <a href="#" class="social-pill">TikTok</a>
         </div>
+      </div>
 
-        <div class="feedback-box">
-            <h3>Complaints & Feedback</h3>
-            <p style="color: #999; margin-bottom: 20px; font-size: 14px;">Your experience matters. Tell us how we can improve.</p>
-            
-            <form style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 15px;">
-                <select class="rating-select">
-                    <option value="">Rate your experience</option>
-                    <option>Excellent 🌟🌟🌟🌟🌟</option>
-                    <option>Good 🌟🌟🌟🌟</option>
-                    <option>Average 🌟🌟🌟</option>
-                    <option>Poor 🌟🌟</option>
-                </select>
-                <input type="text" class="rating-select" placeholder="Order Number (Optional)">
-                <textarea style="grid-column: 1 / -1;" rows="2" placeholder="Your feedback..."></textarea>
-                <button type="submit" class="btn-send" style="grid-column: 1 / -1;">Submit Feedback</button>
-            </form>
-        </div>
+      <div class="contact-form">
+        <h3>Send a Message</h3>
+        <form>
+          <div class="form-group"><input type="text" placeholder="Your Name"></div>
+          <div class="form-group"><input type="email" placeholder="Email Address"></div>
+          <div class="form-group"><textarea rows="2" placeholder="How can we help?"></textarea></div>
+          <button type="submit" class="btn-send">Send Inquiry</button>
+        </form>
+      </div>
+
+      <div class="feedback-box">
+        <h3>Complaints & Feedback</h3>
+        <p style="color: #999; margin-bottom: 20px; font-size: 14px;">Your experience matters. Tell us how we can
+          improve.</p>
+
+        <form style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 15px;">
+          <select class="rating-select">
+            <option value="">Rate your experience</option>
+            <option>Excellent 🌟🌟🌟🌟🌟</option>
+            <option>Good 🌟🌟🌟🌟</option>
+            <option>Average 🌟🌟🌟</option>
+            <option>Poor 🌟🌟</option>
+          </select>
+          <input type="text" class="rating-select" placeholder="Order Number (Optional)">
+          <textarea style="grid-column: 1 / -1;" rows="2" placeholder="Your feedback..."></textarea>
+          <button type="submit" class="btn-send" style="grid-column: 1 / -1;">Submit Feedback</button>
+        </form>
+      </div>
     </div>
 
     <div class="map-container animate">
-        <iframe 
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3456.123456789!2d31.2357!3d30.0444!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzDCsDAyJzQwLjAiTiAzMcKwMTQnMDguNSJF!5e0!3m2!1sen!2seg!4v1620000000000!5m2!1sen!2seg" 
-            allowfullscreen="" loading="lazy">
-        </iframe>
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3456.123456789!2d31.2357!3d30.0444!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzDCsDAyJzQwLjAiTiAzMcKwMTQnMDguNSJF!5e0!3m2!1sen!2seg!4v1620000000000!5m2!1sen!2seg"
+        allowfullscreen="" loading="lazy">
+      </iframe>
     </div>
-</section>
-<div class="whatsapp-container">
-    <div class="whatsapp-msg">     👋 Sahra Cafe اهلا بيك في  </div>
+  </section>
+  <div class="whatsapp-container">
+    <div class="whatsapp-msg"> 👋 Sahra Cafe اهلا بيك في </div>
     <a class="whatsapp-link" href="https://wa.me/201000000000" target="_blank">
-        <i class="fab fa-whatsapp"></i> <span>💬</span> </a>
-</div>
- <footer>
+      <i class="fab fa-whatsapp"></i> <span>💬</span> </a>
+  </div>
+  <footer>
     <p>© 2026 Sahra Cafe - All Rights Reserved</p>
-   
+
 
     <p style="margin-top: 10px; font-size: 14px; color: #777;">
-    Developed by 
-    <a href="https://wa.me/201007359722" target="_blank" style="text-decoration: none; color: #d4a762; font-weight: bold; transition: 0.3s;">
+      Developed by
+      <a href="https://wa.me/201007359722" target="_blank"
+        style="text-decoration: none; color: #d4a762; font-weight: bold; transition: 0.3s;">
         Eng. Radwa Mohmed
-    </a>
-</p>
-</footer>
+      </a>
+    </p>
+  </footer>
 
 
   <script>
